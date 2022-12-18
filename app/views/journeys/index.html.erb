@@ -1,2 +1,12 @@
-<h1>Map App</h1>
-<p>🗺</p>
+<h3>Where are you going?</h3>
+<%= form_with url: "/new", method: :get do |form| %>
+  <div>
+    <%= form.label :start, "Start location" %>
+    <%= form.text_field :start, required: true %>
+  </div>
+  <div>
+    <%= form.label :destination, "Destination" %>
+    <%= form.text_field :destination, required: true%>
+  </div>
+  <%= form.submit "Find your way" %>
+<% end %>

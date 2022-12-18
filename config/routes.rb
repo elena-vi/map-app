@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "journeys#index"
+
+  get '/new', to: 'journeys#new', as: 'new'
+
 end
