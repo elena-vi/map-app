@@ -1,12 +1,22 @@
+<% content_for :head do %>
+  <%= javascript_import_module_tag "plugin/get_current_location" %>
+<% end %>
+
 <h3>Where are you going?</h3>
+<strong id="error"></strong>
 <%= form_with url: "/new", method: :get do |form| %>
-  <div>
-    <%= form.label :start, "Start location" %>
-    <%= form.text_field :start, required: true %>
+  <div class="hidden">
+    <%= form.text_field :latitude, required: true %>
+    <%= form.text_field :longitude, required: true %>
   </div>
+<!--  <div>-->
+    <%#= form.label :start, "Start location" %>
+    <%#= form.text_field :start, required: true %>
+<!--  </div>-->
   <div>
     <%= form.label :destination, "Destination" %>
     <%= form.text_field :destination, required: true%>
   </div>
-  <%= form.submit "Find your way" %>
+  <%= form.submit "Find your way", disabled: true, id: 'submit' %>
 <% end %>
+<script type="text/javascript">console.log("loaded first")</script>

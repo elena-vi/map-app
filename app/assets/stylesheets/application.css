@@ -24,3 +24,7 @@ h1 a {
     text-decoration: none;
     color: white;
 }
+
+.hidden {
+    display: none;
+}

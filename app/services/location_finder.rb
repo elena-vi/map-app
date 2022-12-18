@@ -5,14 +5,16 @@ class LocationFinder < ApplicationService
   attr_reader :location
   PLACES_API = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
 
-  def initialize(location)
+  def initialize(location, current_location)
     @location = location
+    @current_location = current_location
   end
 
   def call
     params = {
       query: @location,
       fields: "formatted_address,name,geometry",
+      location: @current_location,
       key: ENV["GOOGLE_MAPS_KEY"]
     }
     url = URI(PLACES_API+params.to_param)
