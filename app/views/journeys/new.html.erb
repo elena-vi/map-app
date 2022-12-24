@@ -10,14 +10,15 @@
 <!--  </ul>-->
 <%#end%>
 
-<h5>Start destination</h5>
+<h5>Pick your destination</h5>
 
 <% @destination.each do |l| %>
   <ul>
-    <li><%= l.name %></li>
-    <ul>
-      <li><%= l.formatted_address %></li>
-      <li><%= l.geometry %></li>
-    </ul>
+    <li>
+      <%= form_with url: route_path, method: 'get' do |f| %>
+        <%= f.hidden_field :start_location, value: @current_location %>
+        <%= f.button "#{l.name}: #{l.formatted_address}", type: 'submit', name: 'end_location', value: "#{l.geometry['location']['lat']},#{l.geometry['location']['lng']}" %>
+      <% end %>
+    </li>
   </ul>
 <%end%>

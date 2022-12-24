@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   get '/new', to: 'journeys#new', as: 'new'
 
+  get '/route', to: 'journeys#route', as: 'route'
+
 end

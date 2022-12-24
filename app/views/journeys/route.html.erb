@@ -1,0 +1,31 @@
+<% @route.routes.each do |r| %>
+  <%#= r %>
+  <details>
+    <summary>
+      <table>
+        <tbody>
+        <tr>
+          <td>Arrival Time</td>
+          <td><%= r['route_arrival_time'] %></td>
+        </tr>            <tr>
+          <td>Duration</td>
+          <td><%= r['duration_seconds'] %></td>
+        </tr>
+        <tr>
+          <td>Price</td>
+          <td><%= r['price']['formatted'] %></td>
+        </tr>
+        </tbody>
+      </table>
+    </summary>
+    <p>
+      <ul>
+        <% r['legs'].each do |l| %>
+        <li>
+          <%= l['travel_mode'] %>
+        </li>
+        <%end%>
+      </ul>
+    </p>
+  </details>
+<%end%>
