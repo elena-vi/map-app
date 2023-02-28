@@ -1,31 +1,42 @@
-<% @route.routes.each do |r| %>
-  <%#= r %>
-  <details>
-    <summary>
-      <table>
-        <tbody>
-        <tr>
-          <td>Arrival Time</td>
-          <td><%= r['route_arrival_time'] %></td>
-        </tr>            <tr>
-          <td>Duration</td>
-          <td><%= r['duration_seconds'] %></td>
-        </tr>
-        <tr>
-          <td>Price</td>
-          <td><%= r['price']['formatted'] %></td>
-        </tr>
-        </tbody>
-      </table>
-    </summary>
-    <p>
+<% if @route.routes %>
+  <% @route.routes.each do |r| %>
+    <details>
+      <summary>
+        <table>
+          <tbody>
+          <tr>
+            <td>Arrival Time</td>
+            <td><%= r.route_arrival_time %></td>
+          </tr>            <tr>
+            <td>Duration</td>
+            <td><%= r.duration_seconds %></td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td><%= r.price.formatted %></td>
+          </tr>
+          </tbody>
+        </table>
+      </summary>
+      <p>
       <ul>
-        <% r['legs'].each do |l| %>
-        <li>
-          <%= l['travel_mode'] %>
-        </li>
+        <% r.legs.each do |l| %>
+          <li>
+            <% if l.travel_mode == "transit" %>
+              <% l.services.each do |s| %>
+                <strong style="background-color: <%=s.background_color%>; color: <%=s.text_color%>">
+                  <%= s.name%><%= l.direction_description ? " #{l.direction_description}" : '' %></strong>
+              <% end %>
+              <%= l.stops.length %> stops (<%= l.stops.map{|p|  p.name}.join(', ') %>)
+            <% elsif l.travel_mode == "walk" %>
+              <%= l.station_walk_type %>
+            <% else %>
+              <%= l.travel_mode %>
+            <% end %>
+          </li>
         <%end%>
       </ul>
-    </p>
-  </details>
-<%end%>
+      </p>
+    </details>
+    <% end %>
+<% end %>

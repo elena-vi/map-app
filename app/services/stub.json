@@ -1,0 +1,2414 @@
+{
+  "routes": [
+    {
+      "start": {
+        "coordinates": {
+          "lat": 51.514021,
+          "lon": 0.013581
+        }
+      },
+      "end": {
+        "coordinates": {
+          "lat": 51.505456,
+          "lon": -0.075356
+        }
+      },
+      "distance_meters": 1615,
+      "duration_seconds": 2229,
+      "duration_accuracy": "scheduled",
+      "price": {
+        "formatted": "£2.60",
+        "currency": "GBP",
+        "amount": "2.60"
+      },
+      "legs": [
+        {
+          "duration_seconds": 502,
+          "path": "uilyHqtAg@D{ARGPSTBn@Bl@D`AD|@Dz@D~@BRMBg@DB\\OB@F@JA@BVFh@TxBBN@NBLDd@@DBLCDKL?r@AvABP@DDT@?DENKFELIH`@",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T22:53:57+00:00",
+            "leg_arrival_time": "2022-12-24T23:02:19+00:00"
+          },
+          "travel_mode": "walk",
+          "station_walk_type": "enter_station",
+          "walk_details_enter_station": {
+            "recommended_exit": {
+              "id": "CanningTown_E2864",
+              "stop_id": "CanningTown",
+              "coordinates": {
+                "lat": 51.5144428,
+                "lon": 0.0087115
+              },
+              "name": "Silvertown Way"
+            },
+            "alternate_exits": [
+              {
+                "id": "CanningTown_E30195",
+                "stop_id": "CanningTown",
+                "coordinates": {
+                  "lat": 51.51446,
+                  "lon": 0.007285
+                },
+                "name": "Bow Creek"
+              }
+            ],
+            "duration_seconds": 120
+          }
+        },
+        {
+          "duration_seconds": 660,
+          "path": "{klyHys@f@tALOvB{B|AsAjBgAlF}BvGwDnAm@jBq@z@S~ACzCBtCh@~DrA|CvAdG`EtEzEzBtDdA`CdH~QH^z@hDTjALrAJzECpBSjGs@xHeBdN{AnHoBrHsBrG}@|Dk@fDWvBsDxi@QpDcBn]g@hIE~Hh@vGxA|GrBrFjCfDj@`BrHd_@vLpg@|AdPAjM?dBNz]^~q@B|@@Vt@hKH~E}AvQy@hNoA`FaFhLaFfKqGbMsDvIkErJiAxDoApGQlBCzA?v@cBA",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:05:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:16:00+00:00",
+            "departures": [
+              {
+                "type": "frequency",
+                "service_id": "Jubilee",
+                "frequency_seconds_range": [
+                  370,
+                  370
+                ],
+                "time_status": "unknown"
+              }
+            ],
+            "live_departure_availability": "unknown",
+            "statuses": [
+              {
+                "type": "travel_affected",
+                "title": "Reduced service / Minor Delays",
+                "description": "Jubilee Line: Minor delays due to train cancellations. \n LONDON UNDERGROUND: Christmas Eve, 24 December, services finish early on all Tube lines. No Night Tube. \n Christmas, 25 December, no service on any TfL line.",
+                "service_ids": [
+                  "Jubilee"
+                ]
+              }
+            ],
+            "approximate_frequency_seconds_range": [
+              370,
+              370
+            ]
+          },
+          "vehicle_types": [
+            "metro"
+          ],
+          "services": [
+            {
+              "id": "Jubilee",
+              "name": "Jubilee",
+              "vehicle_types": [
+                "metro"
+              ],
+              "brand": {
+                "id": "Underground",
+                "name": "Tube",
+                "images": [
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/8b8aba6801e6c6a8bf1b19accbe5e251d29903dc364ce037759c356f/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/7ad2e46c402b60d6c7504f9e7d51d2b20346238f551c7f2f2f590075/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/4ccce98ceba94488c18974347aea28abc65372f501672c853437fb4a/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/6de44c8485b8dbc853db67b60fa5954a9e48eeb6eca81cc7e48b631c/d324a6fb/@2x.png",
+                    "width": 9,
+                    "height": 8,
+                    "ui_role": "pin_small"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/47487111a5a55f0d80ba750c51fdac6580a19af1fc329e8977b24893/d324a6fb/@2x.png",
+                    "width": 21,
+                    "height": 18,
+                    "ui_role": "pin_big"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/2de58cc981d0472d2cdd91b1683be590513ce72bb7903a4e977b7389/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/b4f7373a7be8ed40ddb5a30f701c83e1dd55322e1e98f7b3b6e7f861/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 12,
+                    "ui_role": "pin_small",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/ef8f68b2309471d65093cbce77dc2ae81aad6e133460648115600445/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/db1134a025fe35e5138aeedeaac229b231e639e521281714c8c5276e/d324a6fb/@2x.png",
+                    "width": 15,
+                    "height": 16,
+                    "ui_role": "vehicle_compact",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/1403a6bce9d32a85e8b1739818699862112481edb570f774ffde2bb3/d324a6fb/@2x.png",
+                    "width": 24,
+                    "height": 33,
+                    "ui_role": "vehicle",
+                    "is_generic": true
+                  }
+                ]
+              },
+              "images": [
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/ccfa974722e4804ade7e6f87284716e5a02f06d2a1ef0df719af618e/d324a6fb/@2x.png",
+                  "width": 24,
+                  "height": 24,
+                  "ui_role": "service"
+                },
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/d6c2fbdf8d8970167f00b374c960e63122f0ba46408642a02df497b9/d324a6fb/@2x.png",
+                  "width": 16,
+                  "height": 16,
+                  "ui_role": "service"
+                }
+              ],
+              "color": "#868F98",
+              "background_color": "#868F98",
+              "text_color": "#FFFFFF"
+            }
+          ],
+          "travel_mode": "transit",
+          "stops": [
+            {
+              "id": "CanningTown",
+              "name": "Canning Town",
+              "coordinates": {
+                "lat": 51.514376,
+                "lon": 0.008454
+              }
+            },
+            {
+              "id": "NorthGreenwich",
+              "name": "North Greenwich",
+              "coordinates": {
+                "lat": 51.500182,
+                "lon": 0.003607
+              }
+            },
+            {
+              "id": "CanaryWharf",
+              "name": "Canary Wharf",
+              "coordinates": {
+                "lat": 51.50363,
+                "lon": -0.0195
+              }
+            },
+            {
+              "id": "CanadaWater",
+              "name": "Canada Water",
+              "coordinates": {
+                "lat": 51.497889,
+                "lon": -0.049706
+              }
+            },
+            {
+              "id": "Bermondsey",
+              "name": "Bermondsey",
+              "coordinates": {
+                "lat": 51.497949,
+                "lon": -0.063651
+              }
+            },
+            {
+              "id": "LondonBridge",
+              "name": "London Bridge",
+              "coordinates": {
+                "lat": 51.505499,
+                "lon": -0.086922
+              }
+            }
+          ],
+          "direction_description": "Westbound",
+          "best_boarding_sections": {
+            "front": false,
+            "middle": true,
+            "back": false
+          }
+        },
+        {
+          "duration_seconds": 906,
+          "path": "kvjyHpzOA?@K@QD_@DQBOBMHYNm@Li@^aAPk@BG@CJ]FUJ[DI@CPi@FUJ[BE@GFMBKFWJWDMH]DMDMFa@Lg@BKHe@Ja@Pk@Ne@@ENa@DKL_@DMDMX{@DUBKDWBKF_@?AF_@DW@C@GD]FW@GHWDQBOEECCLe@AC@E@GQMu@k@@KZgBTuAL}@aBaB@EFe@@GIE?C@EGCCMiAq@mC}A]UKGQIq@a@",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:16:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:31:06+00:00"
+          },
+          "travel_mode": "walk",
+          "station_walk_type": "exit_station",
+          "walk_details_exit_station": {
+            "recommended_exit": {
+              "id": "LondonBridge_E4_JoinerSt",
+              "stop_id": "LondonBridge",
+              "coordinates": {
+                "lat": 51.505817,
+                "lon": -0.086332
+              },
+              "name": "Joiner Street"
+            },
+            "alternate_exits": [
+              {
+                "id": "LondonBridge_E1_BoroughSt",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.50491,
+                  "lon": -0.089572
+                },
+                "name": "Borough High Street"
+              },
+              {
+                "id": "LondonBridge_E2_BoroughSt",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.504902,
+                  "lon": -0.0901981
+                },
+                "name": "Borough High Street"
+              },
+              {
+                "id": "LondonBridge_E3_DukeSt",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.505887,
+                  "lon": -0.0869187
+                },
+                "name": "Duke Street"
+              },
+              {
+                "id": "LondonBridge_E5_Shard",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.5046091,
+                  "lon": -0.0868984
+                },
+                "name": "St Thomas Street / The Shard"
+              },
+              {
+                "id": "LondonBridge_ERail_StThomas_Fenning_railonly",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.503027,
+                  "lon": -0.08408
+                },
+                "name": "St. Thomas Street / Fenning Street"
+              },
+              {
+                "id": "LondonBridge_ERail_StThomas_Weston",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.503419,
+                  "lon": -0.08523
+                },
+                "name": "St. Thomas Street / Weston Street"
+              },
+              {
+                "id": "LondonBridge_ERail_TooleySt",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.505207,
+                  "lon": -0.0846206
+                },
+                "name": "Tooley Street"
+              },
+              {
+                "id": "LondonBridge_ERail_TooleySt_railonly",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.5048032,
+                  "lon": -0.0836634
+                },
+                "name": "Tooley Street"
+              },
+              {
+                "id": "LondonBridge_Erail_tube_escalator",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.505162,
+                  "lon": -0.086522
+                },
+                "name": "London Bridge Place (Tube)"
+              },
+              {
+                "id": "LondonBridge_Erail_upperconcourse",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.505022,
+                  "lon": -0.086297
+                },
+                "name": "London Bridge Place"
+              }
+            ],
+            "duration_seconds": 150
+          }
+        }
+      ],
+      "route_departure_time": "2022-12-24T22:53:57+00:00",
+      "route_arrival_time": "2022-12-24T23:31:06+00:00",
+      "signature": "v2.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjbTp0cmFuc2l0MSIsImlhdCI6MTY3MTkyMjQzOSwiZnJvbnRlbmRfc2lnbmF0dXJlIjoie1wiY2FyXCI6NzE4NixcImR1cmF0aW9uXCI6MjIyOSxcImVuZFwiOntcImNvb3Jkc1wiOlwiNTEuNTA1NDU2LC0wLjA3NTM1NlwifSxcImpyX2luZGV4XCI6MCxcImxlZ3NcIjpbe1wiZGlzdGFuY2VcIjo1MjUsXCJkdXJhdGlvblwiOjUwMixcImVjXCI6XCI1MS41MTQ0NCwwLjAwODcxXCIsXCJpbl9zdGF0aW9uXCI6XCIwLzEyMFwiLFwibW9kZVwiOlwid2Fsa1wiLFwic2NcIjpcIjUxLjUxNDAzLDAuMDEzNjlcIixcInRvX2V4aXRcIjpcIkNhbm5pbmdUb3duX0UyODY0XCJ9LHtcImRlcGFydHVyZXNcIjpbNjYzXSxcImR1cmF0aW9uXCI6NjYwLFwiZW5kXCI6XCJMb25kb25CcmlkZ2VcIixcIm1vZGVcIjpcInRyYW5zaXRcIixcInJvdXRlX2lkc1wiOltcIkp1YmlsZWVcIl0sXCJzdGFydFwiOlwiQ2FubmluZ1Rvd25cIixcInN0b3BfY291bnRcIjo2LFwic3RvcF9pZHNcIjpbXCJQbGF0Zm9ybV9DYW5uaW5nVG93bl9KXCIsXCJQbGF0Zm9ybV9Mb25kb25CcmlkZ2VfSl9kV1wiXX0se1wiZGlzdGFuY2VcIjoxMDkwLFwiZHVyYXRpb25cIjo5MDYsXCJlY1wiOlwiNTEuNTA1NDcsLTAuMDc1NFwiLFwiZnJvbV9leGl0XCI6XCJMb25kb25CcmlkZ2VfRTRfSm9pbmVyU3RcIixcImluX3N0YXRpb25cIjpcIjIvMTUwXCIsXCJtb2RlXCI6XCJ3YWxrXCIsXCJzY1wiOlwiNTEuNTA1ODIsLTAuMDg2MzNcIn1dLFwicHJpY2VfcGVuY2VcIjoyNjAsXCJyZWdpb25cIjpcInVrLWxvbmRvblwiLFwicm91dGluZ19yZXF1ZXN0X2lkXCI6XCI2YzNkMWNhNi03MGY4LTRiZDUtYjE5MC05MWE4ZTQ3YmMwYzRcIixcInN0YXJ0XCI6e1wiY29vcmRzXCI6XCI1MS41MTQwMjEsMC4wMTM1ODFcIn0sXCJ0aW1lXCI6XCIyMDIyLTEyLTI0VDIyOjUzOjU3KzAwOjAwL0RFUEFSVF9BVFwiLFwidmVyc2lvblwiOjN9IiwicmVnaW9uX2lkIjoidWstbG9uZG9uIn0.XjXDvJSiElqrC6fv5gVFGdKMyxZBMJBp8kLef0Dxs3c",
+      "requested_time": "2022-12-24T22:53:57+00:00",
+      "requested_time_type": "depart"
+    },
+    {
+      "start": {
+        "coordinates": {
+          "lat": 51.514021,
+          "lon": 0.013581
+        }
+      },
+      "end": {
+        "coordinates": {
+          "lat": 51.505456,
+          "lon": -0.075356
+        }
+      },
+      "distance_meters": 1056,
+      "duration_seconds": 2051,
+      "duration_accuracy": "scheduled",
+      "price": {
+        "formatted": "£3.25",
+        "currency": "GBP",
+        "amount": "3.25"
+      },
+      "legs": [
+        {
+          "duration_seconds": 502,
+          "path": "uilyHqtAg@D{ARGPSTBn@Bl@D`AD|@Dz@D~@BRMBg@DB\\OB@F@JA@BVFh@TxBBN@NBLDd@@DBLCDKL?r@AvABP@DDT@?DENKFELIH`@",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T22:53:57+00:00",
+            "leg_arrival_time": "2022-12-24T23:02:19+00:00"
+          },
+          "travel_mode": "walk",
+          "station_walk_type": "enter_station",
+          "walk_details_enter_station": {
+            "recommended_exit": {
+              "id": "CanningTown_E2864",
+              "stop_id": "CanningTown",
+              "coordinates": {
+                "lat": 51.5144428,
+                "lon": 0.0087115
+              },
+              "name": "Silvertown Way"
+            },
+            "alternate_exits": [
+              {
+                "id": "CanningTown_E30195",
+                "stop_id": "CanningTown",
+                "coordinates": {
+                  "lat": 51.51446,
+                  "lon": 0.007285
+                },
+                "name": "Bow Creek"
+              }
+            ],
+            "duration_seconds": 120
+          }
+        },
+        {
+          "duration_seconds": 480,
+          "path": "{klyHys@f@tALOvB{B|AsAjBgAlF}BvGwDnAm@jBq@z@S~ACzCBtCh@~DrA|CvAdG`EtEzEzBtDdA`CdH~QH^z@hDTjALrAJzECpBSjGs@xHeBdN{AnHoBrHsBrG}@|Dk@fDWvBsDxi@QpDcBn]g@hIE~Hh@vGxA|GrBrFjCfDj@`BrHd_@vLpg@|AdPAjM?dBNz]^~q@B|@i@D",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:05:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:13:00+00:00",
+            "departures": [
+              {
+                "type": "frequency",
+                "service_id": "Jubilee",
+                "frequency_seconds_range": [
+                  370,
+                  370
+                ],
+                "time_status": "unknown"
+              }
+            ],
+            "live_departure_availability": "unknown",
+            "statuses": [
+              {
+                "type": "travel_affected",
+                "title": "Reduced service / Minor Delays",
+                "description": "Jubilee Line: Minor delays due to train cancellations. \n LONDON UNDERGROUND: Christmas Eve, 24 December, services finish early on all Tube lines. No Night Tube. \n Christmas, 25 December, no service on any TfL line.",
+                "service_ids": [
+                  "Jubilee"
+                ]
+              }
+            ],
+            "approximate_frequency_seconds_range": [
+              370,
+              370
+            ]
+          },
+          "vehicle_types": [
+            "metro"
+          ],
+          "services": [
+            {
+              "id": "Jubilee",
+              "name": "Jubilee",
+              "vehicle_types": [
+                "metro"
+              ],
+              "brand": {
+                "id": "Underground",
+                "name": "Tube",
+                "images": [
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/8b8aba6801e6c6a8bf1b19accbe5e251d29903dc364ce037759c356f/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/7ad2e46c402b60d6c7504f9e7d51d2b20346238f551c7f2f2f590075/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/4ccce98ceba94488c18974347aea28abc65372f501672c853437fb4a/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/6de44c8485b8dbc853db67b60fa5954a9e48eeb6eca81cc7e48b631c/d324a6fb/@2x.png",
+                    "width": 9,
+                    "height": 8,
+                    "ui_role": "pin_small"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/47487111a5a55f0d80ba750c51fdac6580a19af1fc329e8977b24893/d324a6fb/@2x.png",
+                    "width": 21,
+                    "height": 18,
+                    "ui_role": "pin_big"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/2de58cc981d0472d2cdd91b1683be590513ce72bb7903a4e977b7389/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/b4f7373a7be8ed40ddb5a30f701c83e1dd55322e1e98f7b3b6e7f861/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 12,
+                    "ui_role": "pin_small",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/ef8f68b2309471d65093cbce77dc2ae81aad6e133460648115600445/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/db1134a025fe35e5138aeedeaac229b231e639e521281714c8c5276e/d324a6fb/@2x.png",
+                    "width": 15,
+                    "height": 16,
+                    "ui_role": "vehicle_compact",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/1403a6bce9d32a85e8b1739818699862112481edb570f774ffde2bb3/d324a6fb/@2x.png",
+                    "width": 24,
+                    "height": 33,
+                    "ui_role": "vehicle",
+                    "is_generic": true
+                  }
+                ]
+              },
+              "images": [
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/ccfa974722e4804ade7e6f87284716e5a02f06d2a1ef0df719af618e/d324a6fb/@2x.png",
+                  "width": 24,
+                  "height": 24,
+                  "ui_role": "service"
+                },
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/d6c2fbdf8d8970167f00b374c960e63122f0ba46408642a02df497b9/d324a6fb/@2x.png",
+                  "width": 16,
+                  "height": 16,
+                  "ui_role": "service"
+                }
+              ],
+              "color": "#868F98",
+              "background_color": "#868F98",
+              "text_color": "#FFFFFF"
+            }
+          ],
+          "travel_mode": "transit",
+          "stops": [
+            {
+              "id": "CanningTown",
+              "name": "Canning Town",
+              "coordinates": {
+                "lat": 51.514376,
+                "lon": 0.008454
+              }
+            },
+            {
+              "id": "NorthGreenwich",
+              "name": "North Greenwich",
+              "coordinates": {
+                "lat": 51.500182,
+                "lon": 0.003607
+              }
+            },
+            {
+              "id": "CanaryWharf",
+              "name": "Canary Wharf",
+              "coordinates": {
+                "lat": 51.50363,
+                "lon": -0.0195
+              }
+            },
+            {
+              "id": "CanadaWater",
+              "name": "Canada Water",
+              "coordinates": {
+                "lat": 51.497889,
+                "lon": -0.049706
+              }
+            },
+            {
+              "id": "Bermondsey",
+              "name": "Bermondsey",
+              "coordinates": {
+                "lat": 51.497949,
+                "lon": -0.063651
+              }
+            }
+          ],
+          "direction_description": "Westbound",
+          "best_boarding_sections": {
+            "front": false,
+            "middle": false,
+            "back": true
+          }
+        },
+        {
+          "duration_seconds": 194,
+          "path": "gfiyHnlKG@?F@J@TJrAB\\CPFhA?FJA",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:13:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:16:14+00:00"
+          },
+          "travel_mode": "walk",
+          "station_walk_type": "exit_station",
+          "walk_details_exit_station": {
+            "recommended_exit": {
+              "id": "Bermondsey_E7920",
+              "stop_id": "Bermondsey",
+              "coordinates": {
+                "lat": 51.4981185,
+                "lon": -0.0636
+              },
+              "name": "Jamaica Road"
+            },
+            "duration_seconds": 120
+          }
+        },
+        {
+          "duration_seconds": 300,
+          "path": "keiyHntKK@PdEFL?l@KL?|@FNA`@GPSlCIjAa@|CCh@oB~HQ^cEzIIb@mAzFMNMr@q@`BsDvIcBrCHL",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:18:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:23:00+00:00",
+            "departures": [
+              {
+                "type": "frequency",
+                "service_id": "LondonBus47",
+                "frequency_seconds_range": [
+                  1155,
+                  1155
+                ],
+                "time_status": "unknown"
+              }
+            ],
+            "live_departure_availability": "unknown",
+            "statuses": [
+              {
+                "type": "no_issues",
+                "service_ids": [
+                  "LondonBus47"
+                ]
+              }
+            ],
+            "approximate_frequency_seconds_range": [
+              1155,
+              1155
+            ]
+          },
+          "vehicle_types": [
+            "bus"
+          ],
+          "services": [
+            {
+              "id": "LondonBus47",
+              "name": "47",
+              "vehicle_types": [
+                "bus"
+              ],
+              "brand": {
+                "id": "LondonBus",
+                "name": "Bus",
+                "images": [
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/48b8784c04f1ef54504b24468db3482c2da2df6572d5a4c4d758b602/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "has_space_for_text": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/f07d8df54ead4238c6cdb0f1a5264d7bf5b948a15848e9364600b32f/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/bb11377addd08ab5d2ba85a4f1ce6e8519db8ea681ab13490523a186/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/9d0396bf3a62b4400abd3590b3ff367bffe42ab380cbdcbae37ede41/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "has_space_for_text": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/eac51b8d19db61809944bedb35abdb81f9345c85506d2a9189ea5372/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/35e1a5fa0822a6c31441044fe79ec4fa42d8551efccce877efda9d25/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 10,
+                    "ui_role": "pin_small"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/6025f3ace12aa6a662a8aee28879f0e372a87cc2ae2dc55122b2e744/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "has_space_for_text": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/886c453ad81abe4eb94d3dd457da6a3f7e85bba62f76a807c175c264/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/4fb5a26e2e7558278c069c0ce6f72b672054069ddbac96f2b4d951f4/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/c5cb8ee837444fda6410b234af6a3ca9b15dbb0dfae1da88ad86b182/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 12,
+                    "ui_role": "pin_small",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/66a70f873fbca23a87baf1f63918e22e37a63f4e1a7a929466bdf519/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/d017fb8cdd82a312484df53e7bf3e1b4b39c1940a4ce077a6c617d2e/d324a6fb/@2x.png",
+                    "width": 12,
+                    "height": 16,
+                    "ui_role": "vehicle_compact"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/8b4e44e1cdc30e49e8c21edb97e389be3a07b34f1c45cac0b3ef7de7/d324a6fb/@2x.png",
+                    "width": 13,
+                    "height": 16,
+                    "ui_role": "vehicle_compact",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/2e25c93eae55e23cd53e90678d66e4aed6b7beb11f6f869569a200c6/d324a6fb/@2x.png",
+                    "width": 20,
+                    "height": 20,
+                    "ui_role": "vehicle"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/83a375cedd40ff34d59ffc95791be1a130c712d0799ffb782b26eeef/d324a6fb/@2x.png",
+                    "width": 24,
+                    "height": 33,
+                    "ui_role": "vehicle",
+                    "is_generic": true
+                  }
+                ]
+              },
+              "color": "#DC241F",
+              "background_color": "#C2322E",
+              "text_color": "#FFFFFF"
+            }
+          ],
+          "travel_mode": "transit",
+          "stops": [
+            {
+              "id": "490000021W",
+              "name": "Bermondsey Station",
+              "coordinates": {
+                "lat": 51.497979,
+                "lon": -0.064877
+              },
+              "indicator_text": "A"
+            },
+            {
+              "id": "490012729W",
+              "name": "St James's Road",
+              "coordinates": {
+                "lat": 51.497979,
+                "lon": -0.067643
+              },
+              "indicator_text": "C"
+            },
+            {
+              "id": "490003034W",
+              "name": "Jamaica Road / Abbey Street",
+              "coordinates": {
+                "lat": 51.498931,
+                "lon": -0.070801
+              },
+              "indicator_text": "D"
+            },
+            {
+              "id": "490006091W",
+              "name": "Dockhead",
+              "coordinates": {
+                "lat": 51.499978,
+                "lon": -0.072688
+              },
+              "indicator_text": "E"
+            },
+            {
+              "id": "490013154A",
+              "name": "Tanner Street",
+              "coordinates": {
+                "lat": 51.500759,
+                "lon": -0.074787
+              },
+              "indicator_text": "A"
+            },
+            {
+              "id": "490013745T",
+              "name": "Boss Street",
+              "coordinates": {
+                "lat": 51.502131,
+                "lon": -0.077294
+              },
+              "indicator_text": "T"
+            }
+          ]
+        },
+        {
+          "duration_seconds": 308,
+          "path": "i_jyH`bNGIGLKJGECCA?ADA?A?KGs@a@AAAAAAAA?CA?GEEEAAABA?A?IEiDoB?BADECIBiAq@mC}A]UKGQIq@a@",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:23:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:28:08+00:00"
+          },
+          "travel_mode": "walk"
+        }
+      ],
+      "route_departure_time": "2022-12-24T22:53:57+00:00",
+      "route_arrival_time": "2022-12-24T23:28:08+00:00",
+      "signature": "v2.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjbTp0cmFuc2l0MSIsImlhdCI6MTY3MTkyMjQzOSwiZnJvbnRlbmRfc2lnbmF0dXJlIjoie1wiY2FyXCI6NzE4NixcImR1cmF0aW9uXCI6MjA1MSxcImVuZFwiOntcImNvb3Jkc1wiOlwiNTEuNTA1NDU2LC0wLjA3NTM1NlwifSxcImpyX2luZGV4XCI6MSxcImxlZ3NcIjpbe1wiZGlzdGFuY2VcIjo1MjUsXCJkdXJhdGlvblwiOjUwMixcImVjXCI6XCI1MS41MTQ0NCwwLjAwODcxXCIsXCJpbl9zdGF0aW9uXCI6XCIwLzEyMFwiLFwibW9kZVwiOlwid2Fsa1wiLFwic2NcIjpcIjUxLjUxNDAzLDAuMDEzNjlcIixcInRvX2V4aXRcIjpcIkNhbm5pbmdUb3duX0UyODY0XCJ9LHtcImRlcGFydHVyZXNcIjpbNjYzXSxcImR1cmF0aW9uXCI6NDgwLFwiZW5kXCI6XCJCZXJtb25kc2V5XCIsXCJtb2RlXCI6XCJ0cmFuc2l0XCIsXCJyb3V0ZV9pZHNcIjpbXCJKdWJpbGVlXCJdLFwic3RhcnRcIjpcIkNhbm5pbmdUb3duXCIsXCJzdG9wX2NvdW50XCI6NSxcInN0b3BfaWRzXCI6W1wiUGxhdGZvcm1fQ2FubmluZ1Rvd25fSlwiLFwiUGxhdGZvcm1fQmVybW9uZHNleV9KX2ROV1wiXX0se1wiZGlzdGFuY2VcIjoxMjAsXCJkdXJhdGlvblwiOjE5NCxcImVjXCI6XCI1MS40OTc5OCwtMC4wNjQ4OFwiLFwiZnJvbV9leGl0XCI6XCJCZXJtb25kc2V5X0U3OTIwXCIsXCJpbl9zdGF0aW9uXCI6XCIyLzEyMFwiLFwibW9kZVwiOlwid2Fsa1wiLFwic2NcIjpcIjUxLjQ5ODEyLC0wLjA2MzZcIn0se1wiZGVwYXJ0dXJlc1wiOlsxNDQzXSxcImR1cmF0aW9uXCI6MzAwLFwiZW5kXCI6XCI0OTAwMTM3NDVUXCIsXCJtb2RlXCI6XCJ0cmFuc2l0XCIsXCJyb3V0ZV9pZHNcIjpbXCJMb25kb25CdXM0N1wiXSxcInN0YXJ0XCI6XCI0OTAwMDAwMjFXXCIsXCJzdG9wX2NvdW50XCI6Nn0se1wiZGlzdGFuY2VcIjo0MTEsXCJkdXJhdGlvblwiOjMwOCxcImVjXCI6XCI1MS41MDU0NywtMC4wNzU0XCIsXCJtb2RlXCI6XCJ3YWxrXCIsXCJzY1wiOlwiNTEuNTAyMTMsLTAuMDc3MjlcIn1dLFwicHJpY2VfcGVuY2VcIjozMjUsXCJyZWdpb25cIjpcInVrLWxvbmRvblwiLFwicm91dGluZ19yZXF1ZXN0X2lkXCI6XCI2YzNkMWNhNi03MGY4LTRiZDUtYjE5MC05MWE4ZTQ3YmMwYzRcIixcInN0YXJ0XCI6e1wiY29vcmRzXCI6XCI1MS41MTQwMjEsMC4wMTM1ODFcIn0sXCJ0aW1lXCI6XCIyMDIyLTEyLTI0VDIyOjUzOjU3KzAwOjAwL0RFUEFSVF9BVFwiLFwidmVyc2lvblwiOjN9IiwicmVnaW9uX2lkIjoidWstbG9uZG9uIn0.0zzUrtHvHWkUWruNJfDwxHLTBe772uhQPDOxmop-V9s",
+      "requested_time": "2022-12-24T22:53:57+00:00",
+      "requested_time_type": "depart"
+    },
+    {
+      "start": {
+        "coordinates": {
+          "lat": 51.514021,
+          "lon": 0.013581
+        }
+      },
+      "end": {
+        "coordinates": {
+          "lat": 51.505456,
+          "lon": -0.075356
+        }
+      },
+      "distance_meters": 817,
+      "duration_seconds": 2160,
+      "duration_accuracy": "scheduled",
+      "price": {
+        "formatted": "£4.25",
+        "currency": "GBP",
+        "amount": "4.25"
+      },
+      "legs": [
+        {
+          "duration_seconds": 502,
+          "path": "uilyHqtAg@D{ARGPSTBn@Bl@D`AD|@Dz@D~@BRMBg@DB\\OB@F@JA@BVFh@TxBBN@NBLDd@@DBLCDKL?r@AvABP@DDT@?DENKFELIH`@",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T22:53:57+00:00",
+            "leg_arrival_time": "2022-12-24T23:02:19+00:00"
+          },
+          "travel_mode": "walk",
+          "station_walk_type": "enter_station",
+          "walk_details_enter_station": {
+            "recommended_exit": {
+              "id": "CanningTown_E2864",
+              "stop_id": "CanningTown",
+              "coordinates": {
+                "lat": 51.5144428,
+                "lon": 0.0087115
+              },
+              "name": "Silvertown Way"
+            },
+            "alternate_exits": [
+              {
+                "id": "CanningTown_E30195",
+                "stop_id": "CanningTown",
+                "coordinates": {
+                  "lat": 51.51446,
+                  "lon": 0.007285
+                },
+                "name": "Bow Creek"
+              }
+            ],
+            "duration_seconds": 120
+          }
+        },
+        {
+          "duration_seconds": 660,
+          "path": "{klyHys@f@tALOvB{B|AsAjBgAlF}BvGwDnAm@jBq@z@S~ACzCBtCh@~DrA|CvAdG`EtEzEzBtDdA`CdH~QH^z@hDTjALrAJzECpBSjGs@xHeBdN{AnHoBrHsBrG}@|Dk@fDWvBsDxi@QpDcBn]g@hIE~Hh@vGxA|GrBrFjCfDj@`BrHd_@vLpg@|AdPAjM?dBNz]^~q@B|@@Vt@hKH~E}AvQy@hNoA`FaFhLaFfKqGbMsDvIkErJiAxDoApGQlBCzA?v@cBA",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:05:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:16:00+00:00",
+            "departures": [
+              {
+                "type": "frequency",
+                "service_id": "Jubilee",
+                "frequency_seconds_range": [
+                  370,
+                  370
+                ],
+                "time_status": "unknown"
+              }
+            ],
+            "live_departure_availability": "unknown",
+            "statuses": [
+              {
+                "type": "travel_affected",
+                "title": "Reduced service / Minor Delays",
+                "description": "Jubilee Line: Minor delays due to train cancellations. \n LONDON UNDERGROUND: Christmas Eve, 24 December, services finish early on all Tube lines. No Night Tube. \n Christmas, 25 December, no service on any TfL line.",
+                "service_ids": [
+                  "Jubilee"
+                ]
+              }
+            ],
+            "approximate_frequency_seconds_range": [
+              370,
+              370
+            ]
+          },
+          "vehicle_types": [
+            "metro"
+          ],
+          "services": [
+            {
+              "id": "Jubilee",
+              "name": "Jubilee",
+              "vehicle_types": [
+                "metro"
+              ],
+              "brand": {
+                "id": "Underground",
+                "name": "Tube",
+                "images": [
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/8b8aba6801e6c6a8bf1b19accbe5e251d29903dc364ce037759c356f/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/7ad2e46c402b60d6c7504f9e7d51d2b20346238f551c7f2f2f590075/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/4ccce98ceba94488c18974347aea28abc65372f501672c853437fb4a/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/6de44c8485b8dbc853db67b60fa5954a9e48eeb6eca81cc7e48b631c/d324a6fb/@2x.png",
+                    "width": 9,
+                    "height": 8,
+                    "ui_role": "pin_small"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/47487111a5a55f0d80ba750c51fdac6580a19af1fc329e8977b24893/d324a6fb/@2x.png",
+                    "width": 21,
+                    "height": 18,
+                    "ui_role": "pin_big"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/2de58cc981d0472d2cdd91b1683be590513ce72bb7903a4e977b7389/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/b4f7373a7be8ed40ddb5a30f701c83e1dd55322e1e98f7b3b6e7f861/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 12,
+                    "ui_role": "pin_small",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/ef8f68b2309471d65093cbce77dc2ae81aad6e133460648115600445/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/db1134a025fe35e5138aeedeaac229b231e639e521281714c8c5276e/d324a6fb/@2x.png",
+                    "width": 15,
+                    "height": 16,
+                    "ui_role": "vehicle_compact",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/1403a6bce9d32a85e8b1739818699862112481edb570f774ffde2bb3/d324a6fb/@2x.png",
+                    "width": 24,
+                    "height": 33,
+                    "ui_role": "vehicle",
+                    "is_generic": true
+                  }
+                ]
+              },
+              "images": [
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/ccfa974722e4804ade7e6f87284716e5a02f06d2a1ef0df719af618e/d324a6fb/@2x.png",
+                  "width": 24,
+                  "height": 24,
+                  "ui_role": "service"
+                },
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/d6c2fbdf8d8970167f00b374c960e63122f0ba46408642a02df497b9/d324a6fb/@2x.png",
+                  "width": 16,
+                  "height": 16,
+                  "ui_role": "service"
+                }
+              ],
+              "color": "#868F98",
+              "background_color": "#868F98",
+              "text_color": "#FFFFFF"
+            }
+          ],
+          "travel_mode": "transit",
+          "stops": [
+            {
+              "id": "CanningTown",
+              "name": "Canning Town",
+              "coordinates": {
+                "lat": 51.514376,
+                "lon": 0.008454
+              }
+            },
+            {
+              "id": "NorthGreenwich",
+              "name": "North Greenwich",
+              "coordinates": {
+                "lat": 51.500182,
+                "lon": 0.003607
+              }
+            },
+            {
+              "id": "CanaryWharf",
+              "name": "Canary Wharf",
+              "coordinates": {
+                "lat": 51.50363,
+                "lon": -0.0195
+              }
+            },
+            {
+              "id": "CanadaWater",
+              "name": "Canada Water",
+              "coordinates": {
+                "lat": 51.497889,
+                "lon": -0.049706
+              }
+            },
+            {
+              "id": "Bermondsey",
+              "name": "Bermondsey",
+              "coordinates": {
+                "lat": 51.497949,
+                "lon": -0.063651
+              }
+            },
+            {
+              "id": "LondonBridge",
+              "name": "London Bridge",
+              "coordinates": {
+                "lat": 51.505499,
+                "lon": -0.086922
+              }
+            }
+          ],
+          "direction_description": "Westbound",
+          "best_boarding_sections": {
+            "front": false,
+            "middle": true,
+            "back": false
+          }
+        },
+        {
+          "duration_seconds": 163,
+          "path": "yvjyHf~OCACPAHGC",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:16:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:18:43+00:00"
+          },
+          "travel_mode": "walk",
+          "station_walk_type": "exit_station",
+          "walk_details_exit_station": {
+            "recommended_exit": {
+              "id": "LondonBridge_E3_DukeSt",
+              "stop_id": "LondonBridge",
+              "coordinates": {
+                "lat": 51.505887,
+                "lon": -0.0869187
+              },
+              "name": "Duke Street"
+            },
+            "alternate_exits": [
+              {
+                "id": "LondonBridge_E1_BoroughSt",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.50491,
+                  "lon": -0.089572
+                },
+                "name": "Borough High Street"
+              },
+              {
+                "id": "LondonBridge_E2_BoroughSt",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.504902,
+                  "lon": -0.0901981
+                },
+                "name": "Borough High Street"
+              },
+              {
+                "id": "LondonBridge_E4_JoinerSt",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.505817,
+                  "lon": -0.086332
+                },
+                "name": "Joiner Street"
+              },
+              {
+                "id": "LondonBridge_E5_Shard",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.5046091,
+                  "lon": -0.0868984
+                },
+                "name": "St Thomas Street / The Shard"
+              },
+              {
+                "id": "LondonBridge_ERail_StThomas_Fenning_railonly",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.503027,
+                  "lon": -0.08408
+                },
+                "name": "St. Thomas Street / Fenning Street"
+              },
+              {
+                "id": "LondonBridge_ERail_StThomas_Weston",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.503419,
+                  "lon": -0.08523
+                },
+                "name": "St. Thomas Street / Weston Street"
+              },
+              {
+                "id": "LondonBridge_ERail_TooleySt",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.505207,
+                  "lon": -0.0846206
+                },
+                "name": "Tooley Street"
+              },
+              {
+                "id": "LondonBridge_ERail_TooleySt_railonly",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.5048032,
+                  "lon": -0.0836634
+                },
+                "name": "Tooley Street"
+              },
+              {
+                "id": "LondonBridge_Erail_tube_escalator",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.505162,
+                  "lon": -0.086522
+                },
+                "name": "London Bridge Place (Tube)"
+              },
+              {
+                "id": "LondonBridge_Erail_upperconcourse",
+                "stop_id": "LondonBridge",
+                "coordinates": {
+                  "lat": 51.505022,
+                  "lon": -0.086297
+                },
+                "name": "London Bridge Place"
+              }
+            ],
+            "duration_seconds": 150
+          }
+        },
+        {
+          "duration_seconds": 240,
+          "path": "kwjyH|~OLFt@wGjBaGLo@Ny@FHdDcMbBkGLy@@o@FF`BoGMc@l@oE_@UKSwBmAET",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:23:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:27:00+00:00",
+            "departures": [
+              {
+                "type": "frequency",
+                "service_id": "LondonBus343",
+                "frequency_seconds_range": [
+                  677,
+                  677
+                ],
+                "time_status": "unknown"
+              }
+            ],
+            "live_departure_availability": "unknown",
+            "statuses": [
+              {
+                "type": "no_issues",
+                "service_ids": [
+                  "LondonBus343"
+                ]
+              }
+            ],
+            "approximate_frequency_seconds_range": [
+              677,
+              677
+            ]
+          },
+          "vehicle_types": [
+            "bus"
+          ],
+          "services": [
+            {
+              "id": "LondonBus343",
+              "name": "343",
+              "vehicle_types": [
+                "bus"
+              ],
+              "brand": {
+                "id": "LondonBus",
+                "name": "Bus",
+                "images": [
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/48b8784c04f1ef54504b24468db3482c2da2df6572d5a4c4d758b602/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "has_space_for_text": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/f07d8df54ead4238c6cdb0f1a5264d7bf5b948a15848e9364600b32f/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/bb11377addd08ab5d2ba85a4f1ce6e8519db8ea681ab13490523a186/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/9d0396bf3a62b4400abd3590b3ff367bffe42ab380cbdcbae37ede41/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "has_space_for_text": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/eac51b8d19db61809944bedb35abdb81f9345c85506d2a9189ea5372/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/35e1a5fa0822a6c31441044fe79ec4fa42d8551efccce877efda9d25/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 10,
+                    "ui_role": "pin_small"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/6025f3ace12aa6a662a8aee28879f0e372a87cc2ae2dc55122b2e744/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "has_space_for_text": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/886c453ad81abe4eb94d3dd457da6a3f7e85bba62f76a807c175c264/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/4fb5a26e2e7558278c069c0ce6f72b672054069ddbac96f2b4d951f4/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/c5cb8ee837444fda6410b234af6a3ca9b15dbb0dfae1da88ad86b182/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 12,
+                    "ui_role": "pin_small",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/66a70f873fbca23a87baf1f63918e22e37a63f4e1a7a929466bdf519/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/d017fb8cdd82a312484df53e7bf3e1b4b39c1940a4ce077a6c617d2e/d324a6fb/@2x.png",
+                    "width": 12,
+                    "height": 16,
+                    "ui_role": "vehicle_compact"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/8b4e44e1cdc30e49e8c21edb97e389be3a07b34f1c45cac0b3ef7de7/d324a6fb/@2x.png",
+                    "width": 13,
+                    "height": 16,
+                    "ui_role": "vehicle_compact",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/2e25c93eae55e23cd53e90678d66e4aed6b7beb11f6f869569a200c6/d324a6fb/@2x.png",
+                    "width": 20,
+                    "height": 20,
+                    "ui_role": "vehicle"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/83a375cedd40ff34d59ffc95791be1a130c712d0799ffb782b26eeef/d324a6fb/@2x.png",
+                    "width": 24,
+                    "height": 33,
+                    "ui_role": "vehicle",
+                    "is_generic": true
+                  }
+                ]
+              },
+              "color": "#DC241F",
+              "background_color": "#C2322E",
+              "text_color": "#FFFFFF"
+            }
+          ],
+          "travel_mode": "transit",
+          "stops": [
+            {
+              "id": "490000139R",
+              "name": "London Bridge Station",
+              "coordinates": {
+                "lat": 51.505977,
+                "lon": -0.087032
+              },
+              "indicator_text": "R"
+            },
+            {
+              "id": "490007964H",
+              "name": "Hay's Galleria",
+              "coordinates": {
+                "lat": 51.505066,
+                "lon": -0.084116
+              },
+              "indicator_text": "H"
+            },
+            {
+              "id": "4900R0049J",
+              "name": "Abbots Lane",
+              "coordinates": {
+                "lat": 51.504099,
+                "lon": -0.081621
+              },
+              "indicator_text": "J"
+            },
+            {
+              "id": "490016580H",
+              "name": "Unicorn Theatre",
+              "coordinates": {
+                "lat": 51.503568,
+                "lon": -0.079971
+              },
+              "indicator_text": "J"
+            },
+            {
+              "id": "490013744L",
+              "name": "Tower Bridge",
+              "coordinates": {
+                "lat": 51.503659,
+                "lon": -0.07674
+              },
+              "indicator_text": "L"
+            }
+          ]
+        },
+        {
+          "duration_seconds": 177,
+          "path": "{hjyHr~MDUMGEOECECIBiAq@mC}A]UKGQIq@a@",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:27:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:29:57+00:00"
+          },
+          "travel_mode": "walk"
+        }
+      ],
+      "route_departure_time": "2022-12-24T22:53:57+00:00",
+      "route_arrival_time": "2022-12-24T23:29:57+00:00",
+      "signature": "v2.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjbTp0cmFuc2l0MSIsImlhdCI6MTY3MTkyMjQzOSwiZnJvbnRlbmRfc2lnbmF0dXJlIjoie1wiY2FyXCI6NzE4NixcImR1cmF0aW9uXCI6MjE2MCxcImVuZFwiOntcImNvb3Jkc1wiOlwiNTEuNTA1NDU2LC0wLjA3NTM1NlwifSxcImpyX2luZGV4XCI6MixcImxlZ3NcIjpbe1wiZGlzdGFuY2VcIjo1MjUsXCJkdXJhdGlvblwiOjUwMixcImVjXCI6XCI1MS41MTQ0NCwwLjAwODcxXCIsXCJpbl9zdGF0aW9uXCI6XCIwLzEyMFwiLFwibW9kZVwiOlwid2Fsa1wiLFwic2NcIjpcIjUxLjUxNDAzLDAuMDEzNjlcIixcInRvX2V4aXRcIjpcIkNhbm5pbmdUb3duX0UyODY0XCJ9LHtcImRlcGFydHVyZXNcIjpbNjYzXSxcImR1cmF0aW9uXCI6NjYwLFwiZW5kXCI6XCJMb25kb25CcmlkZ2VcIixcIm1vZGVcIjpcInRyYW5zaXRcIixcInJvdXRlX2lkc1wiOltcIkp1YmlsZWVcIl0sXCJzdGFydFwiOlwiQ2FubmluZ1Rvd25cIixcInN0b3BfY291bnRcIjo2LFwic3RvcF9pZHNcIjpbXCJQbGF0Zm9ybV9DYW5uaW5nVG93bl9KXCIsXCJQbGF0Zm9ybV9Mb25kb25CcmlkZ2VfSl9kV1wiXX0se1wiZGlzdGFuY2VcIjo2MCxcImR1cmF0aW9uXCI6MTYzLFwiZWNcIjpcIjUxLjUwNTk4LC0wLjA4NzAzXCIsXCJmcm9tX2V4aXRcIjpcIkxvbmRvbkJyaWRnZV9FM19EdWtlU3RcIixcImluX3N0YXRpb25cIjpcIjIvMTUwXCIsXCJtb2RlXCI6XCJ3YWxrXCIsXCJzY1wiOlwiNTEuNTA1ODksLTAuMDg2OTJcIn0se1wiZGVwYXJ0dXJlc1wiOlsxNzQzXSxcImR1cmF0aW9uXCI6MjQwLFwiZW5kXCI6XCI0OTAwMTM3NDRMXCIsXCJtb2RlXCI6XCJ0cmFuc2l0XCIsXCJyb3V0ZV9pZHNcIjpbXCJMb25kb25CdXMzNDNcIl0sXCJzdGFydFwiOlwiNDkwMDAwMTM5UlwiLFwic3RvcF9jb3VudFwiOjV9LHtcImRpc3RhbmNlXCI6MjMyLFwiZHVyYXRpb25cIjoxNzcsXCJlY1wiOlwiNTEuNTA1NDcsLTAuMDc1NFwiLFwibW9kZVwiOlwid2Fsa1wiLFwic2NcIjpcIjUxLjUwMzY2LC0wLjA3Njc0XCJ9XSxcInByaWNlX3BlbmNlXCI6NDI1LFwicmVnaW9uXCI6XCJ1ay1sb25kb25cIixcInJvdXRpbmdfcmVxdWVzdF9pZFwiOlwiNmMzZDFjYTYtNzBmOC00YmQ1LWIxOTAtOTFhOGU0N2JjMGM0XCIsXCJzdGFydFwiOntcImNvb3Jkc1wiOlwiNTEuNTE0MDIxLDAuMDEzNTgxXCJ9LFwidGltZVwiOlwiMjAyMi0xMi0yNFQyMjo1Mzo1NyswMDowMC9ERVBBUlRfQVRcIixcInZlcnNpb25cIjozfSIsInJlZ2lvbl9pZCI6InVrLWxvbmRvbiJ9.im0mf48NSW0f87ymljVWVpzAB5vetkEOWl0atSns5lo",
+      "requested_time": "2022-12-24T22:53:57+00:00",
+      "requested_time_type": "depart"
+    },
+    {
+      "start": {
+        "coordinates": {
+          "lat": 51.514021,
+          "lon": 0.013581
+        }
+      },
+      "end": {
+        "coordinates": {
+          "lat": 51.505456,
+          "lon": -0.075356
+        }
+      },
+      "distance_meters": 1617,
+      "duration_seconds": 3146,
+      "duration_accuracy": "scheduled",
+      "price": {
+        "formatted": "£1.65",
+        "currency": "GBP",
+        "amount": "1.65"
+      },
+      "legs": [
+        {
+          "duration_seconds": 396,
+          "path": "uilyHqtAg@D{ARGPSTBn@Bl@D`AD|@Dz@D~@BRMBg@DB\\OB@F@JA@BVFh@TxBBN@NBLDd@@DBLCDKL?r@AvABP@DDT@?DENKFE\\bB",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T22:53:57+00:00",
+            "leg_arrival_time": "2022-12-24T23:00:33+00:00"
+          },
+          "travel_mode": "walk"
+        },
+        {
+          "duration_seconds": 1440,
+          "path": "allyHas@Qd@GmAoA~@[Ae@dAv@pH~A|JbAbHf@`Bj@dAl@h@zAnB|@~C`@lH@HtEjd@FlE?Td@jFFlBAbBIP?n@FN?\\GJB~CNbAL~@UFFtDHHBdAEVJdHFJDlBEPBdBb@pVDhCmBxUiAvNKnAFNOnDKf@cAzCWxBDfBD`AFfAIdBMl@UvLi@nYHXA^KPCbDDHAbAEt@GpAHTYjCKHm@vIGv@DfM?Pm@~Jm@rG_BlQE|@ExEGNKdFk@dL[dGDTCxAITIzJStYEvGi@pTUh@gA|AAPbBzG?R~@zDZnAP`@t@tDPB",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:09:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:33:00+00:00",
+            "departures": [
+              {
+                "type": "frequency",
+                "service_id": "LondonBus115",
+                "frequency_seconds_range": [
+                  732,
+                  732
+                ],
+                "time_status": "unknown"
+              }
+            ],
+            "live_departure_availability": "unknown",
+            "statuses": [
+              {
+                "type": "no_issues",
+                "service_ids": [
+                  "LondonBus115"
+                ]
+              }
+            ],
+            "approximate_frequency_seconds_range": [
+              732,
+              732
+            ]
+          },
+          "vehicle_types": [
+            "bus"
+          ],
+          "services": [
+            {
+              "id": "LondonBus115",
+              "name": "115",
+              "vehicle_types": [
+                "bus"
+              ],
+              "brand": {
+                "id": "LondonBus",
+                "name": "Bus",
+                "images": [
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/48b8784c04f1ef54504b24468db3482c2da2df6572d5a4c4d758b602/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "has_space_for_text": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/f07d8df54ead4238c6cdb0f1a5264d7bf5b948a15848e9364600b32f/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/bb11377addd08ab5d2ba85a4f1ce6e8519db8ea681ab13490523a186/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/9d0396bf3a62b4400abd3590b3ff367bffe42ab380cbdcbae37ede41/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "has_space_for_text": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/eac51b8d19db61809944bedb35abdb81f9345c85506d2a9189ea5372/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/35e1a5fa0822a6c31441044fe79ec4fa42d8551efccce877efda9d25/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 10,
+                    "ui_role": "pin_small"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/6025f3ace12aa6a662a8aee28879f0e372a87cc2ae2dc55122b2e744/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "has_space_for_text": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/886c453ad81abe4eb94d3dd457da6a3f7e85bba62f76a807c175c264/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/4fb5a26e2e7558278c069c0ce6f72b672054069ddbac96f2b4d951f4/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/c5cb8ee837444fda6410b234af6a3ca9b15dbb0dfae1da88ad86b182/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 12,
+                    "ui_role": "pin_small",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/66a70f873fbca23a87baf1f63918e22e37a63f4e1a7a929466bdf519/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/d017fb8cdd82a312484df53e7bf3e1b4b39c1940a4ce077a6c617d2e/d324a6fb/@2x.png",
+                    "width": 12,
+                    "height": 16,
+                    "ui_role": "vehicle_compact"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/8b4e44e1cdc30e49e8c21edb97e389be3a07b34f1c45cac0b3ef7de7/d324a6fb/@2x.png",
+                    "width": 13,
+                    "height": 16,
+                    "ui_role": "vehicle_compact",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/2e25c93eae55e23cd53e90678d66e4aed6b7beb11f6f869569a200c6/d324a6fb/@2x.png",
+                    "width": 20,
+                    "height": 20,
+                    "ui_role": "vehicle"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/83a375cedd40ff34d59ffc95791be1a130c712d0799ffb782b26eeef/d324a6fb/@2x.png",
+                    "width": 24,
+                    "height": 33,
+                    "ui_role": "vehicle",
+                    "is_generic": true
+                  }
+                ]
+              },
+              "color": "#DC241F",
+              "background_color": "#C2322E",
+              "text_color": "#FFFFFF"
+            }
+          ],
+          "travel_mode": "transit",
+          "stops": [
+            {
+              "id": "490000039G",
+              "name": "Canning Town Bus Station",
+              "coordinates": {
+                "lat": 51.514409,
+                "lon": 0.008329
+              },
+              "indicator_text": "G"
+            },
+            {
+              "id": "490003047W",
+              "name": "Abbott Road",
+              "coordinates": {
+                "lat": 51.512535,
+                "lon": -0.000934
+              }
+            },
+            {
+              "id": "490004084D",
+              "name": "Blackwall Tunnel",
+              "coordinates": {
+                "lat": 51.511397,
+                "lon": -0.008002
+              },
+              "indicator_text": "D"
+            },
+            {
+              "id": "490003701A",
+              "name": "Bazely Street",
+              "coordinates": {
+                "lat": 51.511169,
+                "lon": -0.01209
+              },
+              "indicator_text": "A"
+            },
+            {
+              "id": "490011114AD",
+              "name": "Poplar Recreation Ground",
+              "coordinates": {
+                "lat": 51.510939,
+                "lon": -0.016568
+              },
+              "indicator_text": "E"
+            },
+            {
+              "id": "490013936W",
+              "name": "Upper North Street",
+              "coordinates": {
+                "lat": 51.510751,
+                "lon": -0.020338
+              },
+              "indicator_text": "F"
+            },
+            {
+              "id": "490013965W",
+              "name": "University of Cumbria In London",
+              "coordinates": {
+                "lat": 51.511252,
+                "lon": -0.024734
+              },
+              "indicator_text": "WZ"
+            },
+            {
+              "id": "490004586W",
+              "name": "Burdett Road",
+              "coordinates": {
+                "lat": 51.511632,
+                "lon": -0.027246
+              },
+              "indicator_text": "WT"
+            },
+            {
+              "id": "490009160W",
+              "name": "Limehouse Town Hall",
+              "coordinates": {
+                "lat": 51.512235,
+                "lon": -0.030996
+              },
+              "indicator_text": "LH"
+            },
+            {
+              "id": "490009403W",
+              "name": "Lowell Street",
+              "coordinates": {
+                "lat": 51.512416,
+                "lon": -0.034317
+              },
+              "indicator_text": "LJ"
+            },
+            {
+              "id": "490001180W",
+              "name": "Limehouse Station",
+              "coordinates": {
+                "lat": 51.512689,
+                "lon": -0.04043
+              },
+              "indicator_text": "LK"
+            },
+            {
+              "id": "490012669W",
+              "name": "Stepney Methodist Church",
+              "coordinates": {
+                "lat": 51.513099,
+                "lon": -0.043425
+              },
+              "indicator_text": "LL"
+            },
+            {
+              "id": "490009655W",
+              "name": "Marion Richardson School",
+              "coordinates": {
+                "lat": 51.513114,
+                "lon": -0.045961
+              },
+              "indicator_text": "LM"
+            },
+            {
+              "id": "490006692W",
+              "name": "Exmouth Estate",
+              "coordinates": {
+                "lat": 51.51354,
+                "lon": -0.049387
+              }
+            },
+            {
+              "id": "490012782W",
+              "name": "St Mary's & St Michael's Church",
+              "coordinates": {
+                "lat": 51.514035,
+                "lon": -0.052638
+              }
+            },
+            {
+              "id": "490014308E",
+              "name": "Watney Market",
+              "coordinates": {
+                "lat": 51.514405,
+                "lon": -0.057061
+              },
+              "indicator_text": "E"
+            },
+            {
+              "id": "490010255W",
+              "name": "New Road",
+              "coordinates": {
+                "lat": 51.514649,
+                "lon": -0.060928
+              },
+              "indicator_text": "T"
+            },
+            {
+              "id": "490009276W",
+              "name": "Henriques Street",
+              "coordinates": {
+                "lat": 51.514737,
+                "lon": -0.06519
+              },
+              "indicator_text": "U"
+            },
+            {
+              "id": "490000004W",
+              "name": "Aldgate East Station",
+              "coordinates": {
+                "lat": 51.514653,
+                "lon": -0.073207
+              },
+              "indicator_text": "J"
+            },
+            {
+              "id": "490000003R",
+              "name": "Aldgate Station",
+              "coordinates": {
+                "lat": 51.51413,
+                "lon": -0.074771
+              },
+              "indicator_text": "R"
+            }
+          ]
+        },
+        {
+          "duration_seconds": 803,
+          "path": "ijlyHhrMMJBPPl@DJ@DBJDR@@DEDCAEVKr@HTBt@NHFFAD?Br@JCTIPEDAJCREhBYPEf@IFATEVE@ADANCF@XGD?DABCFI@@t@KLC@?PELCTCXKDAJENGJILODGLYDa@BOBKHOBGHKXSDCF@FEDERQn@RANVNLAF?r@JpGv@\\F?E@EPDJ?RHd@X|BtA\\RNJz@f@HF",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:33:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:46:23+00:00"
+          },
+          "travel_mode": "walk"
+        }
+      ],
+      "route_departure_time": "2022-12-24T22:53:57+00:00",
+      "route_arrival_time": "2022-12-24T23:46:23+00:00",
+      "signature": "v2.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjbTp0cmFuc2l0MSIsImlhdCI6MTY3MTkyMjQzOSwiZnJvbnRlbmRfc2lnbmF0dXJlIjoie1wiY2FyXCI6NzE4NixcImR1cmF0aW9uXCI6MzE0NixcImVuZFwiOntcImNvb3Jkc1wiOlwiNTEuNTA1NDU2LC0wLjA3NTM1NlwifSxcImpyX2luZGV4XCI6MyxcImxlZ3NcIjpbe1wiZGlzdGFuY2VcIjo1MjMsXCJkdXJhdGlvblwiOjM5NixcImVjXCI6XCI1MS41MTQ0MSwwLjAwODMzXCIsXCJtb2RlXCI6XCJ3YWxrXCIsXCJzY1wiOlwiNTEuNTE0MDMsMC4wMTM2OVwifSx7XCJkZXBhcnR1cmVzXCI6WzkwM10sXCJkdXJhdGlvblwiOjE0NDAsXCJlbmRcIjpcIjQ5MDAwMDAwM1JcIixcIm1vZGVcIjpcInRyYW5zaXRcIixcInJvdXRlX2lkc1wiOltcIkxvbmRvbkJ1czExNVwiXSxcInN0YXJ0XCI6XCI0OTAwMDAwMzlHXCIsXCJzdG9wX2NvdW50XCI6MjB9LHtcImRpc3RhbmNlXCI6MTA5NCxcImR1cmF0aW9uXCI6ODAzLFwiZWNcIjpcIjUxLjUwNTQ3LC0wLjA3NTRcIixcIm1vZGVcIjpcIndhbGtcIixcInNjXCI6XCI1MS41MTQxMywtMC4wNzQ3N1wifV0sXCJwcmljZV9wZW5jZVwiOjE2NSxcInJlZ2lvblwiOlwidWstbG9uZG9uXCIsXCJyb3V0aW5nX3JlcXVlc3RfaWRcIjpcIjZjM2QxY2E2LTcwZjgtNGJkNS1iMTkwLTkxYThlNDdiYzBjNFwiLFwic3RhcnRcIjp7XCJjb29yZHNcIjpcIjUxLjUxNDAyMSwwLjAxMzU4MVwifSxcInRpbWVcIjpcIjIwMjItMTItMjRUMjI6NTM6NTcrMDA6MDAvREVQQVJUX0FUXCIsXCJ2ZXJzaW9uXCI6M30iLCJyZWdpb25faWQiOiJ1ay1sb25kb24ifQ.aZ8TO7ssnKGO7z6ADQrK6A3Ngr9BB7vEkWRLofke_K0",
+      "requested_time": "2022-12-24T22:53:57+00:00",
+      "requested_time_type": "depart"
+    },
+    {
+      "start": {
+        "coordinates": {
+          "lat": 51.514021,
+          "lon": 0.013581
+        }
+      },
+      "end": {
+        "coordinates": {
+          "lat": 51.505456,
+          "lon": -0.075356
+        }
+      },
+      "distance_meters": 1758,
+      "duration_seconds": 2767,
+      "duration_accuracy": "scheduled",
+      "price": {
+        "formatted": "£2.60",
+        "currency": "GBP",
+        "amount": "2.60"
+      },
+      "legs": [
+        {
+          "duration_seconds": 502,
+          "path": "uilyHqtAg@D{ARGPSTBn@Bl@D`AD|@Dz@D~@BRMBg@DB\\OB@F@JA@BVFh@TxBBN@NBLDd@@DBLCDKL?r@AvABP@DDT@?DENKFELIH`@",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T22:53:57+00:00",
+            "leg_arrival_time": "2022-12-24T23:02:19+00:00"
+          },
+          "travel_mode": "walk",
+          "station_walk_type": "enter_station",
+          "walk_details_enter_station": {
+            "recommended_exit": {
+              "id": "CanningTown_E2864",
+              "stop_id": "CanningTown",
+              "coordinates": {
+                "lat": 51.5144428,
+                "lon": 0.0087115
+              },
+              "name": "Silvertown Way"
+            },
+            "alternate_exits": [
+              {
+                "id": "CanningTown_E30195",
+                "stop_id": "CanningTown",
+                "coordinates": {
+                  "lat": 51.51446,
+                  "lon": 0.007285
+                },
+                "name": "Bow Creek"
+              }
+            ],
+            "duration_seconds": 120
+          }
+        },
+        {
+          "duration_seconds": 120,
+          "path": "{klyHys@t@dA??yDtEoCpCmDdCoC|AgDpAw@RmCl@yC`@yG\\uBGsD]wOm@cOPMyB",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:07:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:09:00+00:00",
+            "departures": [
+              {
+                "type": "frequency",
+                "service_id": "Jubilee",
+                "frequency_seconds_range": [
+                  332,
+                  332
+                ],
+                "time_status": "unknown"
+              }
+            ],
+            "live_departure_availability": "unknown",
+            "statuses": [
+              {
+                "type": "travel_affected",
+                "title": "Reduced service / Minor Delays",
+                "description": "Jubilee Line: Minor delays due to train cancellations. \n LONDON UNDERGROUND: Christmas Eve, 24 December, services finish early on all Tube lines. No Night Tube. \n Christmas, 25 December, no service on any TfL line.",
+                "service_ids": [
+                  "Jubilee"
+                ]
+              }
+            ],
+            "approximate_frequency_seconds_range": [
+              332,
+              332
+            ]
+          },
+          "vehicle_types": [
+            "metro"
+          ],
+          "services": [
+            {
+              "id": "Jubilee",
+              "name": "Jubilee",
+              "vehicle_types": [
+                "metro"
+              ],
+              "brand": {
+                "id": "Underground",
+                "name": "Tube",
+                "images": [
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/8b8aba6801e6c6a8bf1b19accbe5e251d29903dc364ce037759c356f/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/7ad2e46c402b60d6c7504f9e7d51d2b20346238f551c7f2f2f590075/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/4ccce98ceba94488c18974347aea28abc65372f501672c853437fb4a/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/6de44c8485b8dbc853db67b60fa5954a9e48eeb6eca81cc7e48b631c/d324a6fb/@2x.png",
+                    "width": 9,
+                    "height": 8,
+                    "ui_role": "pin_small"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/47487111a5a55f0d80ba750c51fdac6580a19af1fc329e8977b24893/d324a6fb/@2x.png",
+                    "width": 21,
+                    "height": 18,
+                    "ui_role": "pin_big"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/2de58cc981d0472d2cdd91b1683be590513ce72bb7903a4e977b7389/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/b4f7373a7be8ed40ddb5a30f701c83e1dd55322e1e98f7b3b6e7f861/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 12,
+                    "ui_role": "pin_small",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/ef8f68b2309471d65093cbce77dc2ae81aad6e133460648115600445/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/db1134a025fe35e5138aeedeaac229b231e639e521281714c8c5276e/d324a6fb/@2x.png",
+                    "width": 15,
+                    "height": 16,
+                    "ui_role": "vehicle_compact",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/1403a6bce9d32a85e8b1739818699862112481edb570f774ffde2bb3/d324a6fb/@2x.png",
+                    "width": 24,
+                    "height": 33,
+                    "ui_role": "vehicle",
+                    "is_generic": true
+                  }
+                ]
+              },
+              "images": [
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/ccfa974722e4804ade7e6f87284716e5a02f06d2a1ef0df719af618e/d324a6fb/@2x.png",
+                  "width": 24,
+                  "height": 24,
+                  "ui_role": "service"
+                },
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/d6c2fbdf8d8970167f00b374c960e63122f0ba46408642a02df497b9/d324a6fb/@2x.png",
+                  "width": 16,
+                  "height": 16,
+                  "ui_role": "service"
+                }
+              ],
+              "color": "#868F98",
+              "background_color": "#868F98",
+              "text_color": "#FFFFFF"
+            }
+          ],
+          "travel_mode": "transit",
+          "stops": [
+            {
+              "id": "CanningTown",
+              "name": "Canning Town",
+              "coordinates": {
+                "lat": 51.514376,
+                "lon": 0.008454
+              }
+            },
+            {
+              "id": "WestHam",
+              "name": "West Ham",
+              "coordinates": {
+                "lat": 51.528182,
+                "lon": 0.00504
+              }
+            }
+          ],
+          "direction_description": "Eastbound",
+          "best_boarding_sections": {
+            "front": false,
+            "middle": true,
+            "back": false
+          }
+        },
+        {
+          "duration_seconds": 180,
+          "path": "cboyHo^??????",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:09:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:12:00+00:00"
+          },
+          "travel_mode": "walk",
+          "station_walk_type": "change_platform"
+        },
+        {
+          "duration_seconds": 720,
+          "path": "cboyHo^{@T??hAlGrAtItHth@z@jGbBfK^nCd@xDp@nJ??RdD^hJ@nCGxFQdRE|AS~A_@nAyHnQe@pAU`AMx@Ed@I`A?rBTbD~Gfj@??~AxJzC|K|CjGnCxLp@hG^~Id@vGf@zDLbAnDb\\vDv_@r@tF@`A[`FCxADx@Bp@Fv@RlAb@bC^pAz@jB`@p@r@v@Vp@dBlInEhPxIlXPr@a@\\",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:12:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:24:00+00:00",
+            "departures": [
+              {
+                "type": "frequency",
+                "service_id": "District",
+                "frequency_seconds_range": [
+                  360,
+                  360
+                ],
+                "time_status": "unknown"
+              },
+              {
+                "type": "frequency",
+                "service_id": "HammersmithAndCity",
+                "frequency_seconds_range": [
+                  360,
+                  360
+                ],
+                "time_status": "unknown"
+              }
+            ],
+            "live_departure_availability": "unknown",
+            "statuses": [
+              {
+                "type": "travel_affected",
+                "title": "Reduced service",
+                "description": "LONDON UNDERGROUND: Christmas Eve, 24 December, services finish early on all Tube lines. No Night Tube. \n Christmas, 25 December, no service on any TfL line.",
+                "service_ids": [
+                  "District"
+                ]
+              },
+              {
+                "type": "travel_affected",
+                "title": "Reduced service / Minor Delays",
+                "description": "Hammersmith and City Line: Minor delays due to train cancellations. \n LONDON UNDERGROUND: Christmas Eve, 24 December, services finish early on all Tube lines. No Night Tube. \n Christmas, 25 December, no service on any TfL line.",
+                "service_ids": [
+                  "HammersmithAndCity"
+                ]
+              }
+            ],
+            "approximate_frequency_seconds_range": [
+              360,
+              360
+            ]
+          },
+          "vehicle_types": [
+            "metro"
+          ],
+          "services": [
+            {
+              "id": "District",
+              "name": "District",
+              "vehicle_types": [
+                "metro"
+              ],
+              "brand": {
+                "id": "Underground",
+                "name": "Tube",
+                "images": [
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/8b8aba6801e6c6a8bf1b19accbe5e251d29903dc364ce037759c356f/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/7ad2e46c402b60d6c7504f9e7d51d2b20346238f551c7f2f2f590075/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/4ccce98ceba94488c18974347aea28abc65372f501672c853437fb4a/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/6de44c8485b8dbc853db67b60fa5954a9e48eeb6eca81cc7e48b631c/d324a6fb/@2x.png",
+                    "width": 9,
+                    "height": 8,
+                    "ui_role": "pin_small"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/47487111a5a55f0d80ba750c51fdac6580a19af1fc329e8977b24893/d324a6fb/@2x.png",
+                    "width": 21,
+                    "height": 18,
+                    "ui_role": "pin_big"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/2de58cc981d0472d2cdd91b1683be590513ce72bb7903a4e977b7389/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/b4f7373a7be8ed40ddb5a30f701c83e1dd55322e1e98f7b3b6e7f861/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 12,
+                    "ui_role": "pin_small",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/ef8f68b2309471d65093cbce77dc2ae81aad6e133460648115600445/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/db1134a025fe35e5138aeedeaac229b231e639e521281714c8c5276e/d324a6fb/@2x.png",
+                    "width": 15,
+                    "height": 16,
+                    "ui_role": "vehicle_compact",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/1403a6bce9d32a85e8b1739818699862112481edb570f774ffde2bb3/d324a6fb/@2x.png",
+                    "width": 24,
+                    "height": 33,
+                    "ui_role": "vehicle",
+                    "is_generic": true
+                  }
+                ]
+              },
+              "images": [
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/67906b44ef950220bcc14815933871155c5d89cbe71c5aa1499c14a2/d324a6fb/@2x.png",
+                  "width": 24,
+                  "height": 24,
+                  "ui_role": "service"
+                },
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/672b5e85dd65413374043b475f792473742712a786e4739808e241d5/d324a6fb/@2x.png",
+                  "width": 16,
+                  "height": 16,
+                  "ui_role": "service"
+                }
+              ],
+              "color": "#007229",
+              "background_color": "#007229",
+              "text_color": "#FFFFFF"
+            },
+            {
+              "id": "HammersmithAndCity",
+              "name": "Hammersmith & City",
+              "vehicle_types": [
+                "metro"
+              ],
+              "brand": {
+                "id": "Underground",
+                "name": "Tube",
+                "images": [
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/8b8aba6801e6c6a8bf1b19accbe5e251d29903dc364ce037759c356f/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/7ad2e46c402b60d6c7504f9e7d51d2b20346238f551c7f2f2f590075/d324a6fb/@2x.png",
+                    "width": 33,
+                    "height": 33,
+                    "ui_role": "station",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/4ccce98ceba94488c18974347aea28abc65372f501672c853437fb4a/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/6de44c8485b8dbc853db67b60fa5954a9e48eeb6eca81cc7e48b631c/d324a6fb/@2x.png",
+                    "width": 9,
+                    "height": 8,
+                    "ui_role": "pin_small"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/47487111a5a55f0d80ba750c51fdac6580a19af1fc329e8977b24893/d324a6fb/@2x.png",
+                    "width": 21,
+                    "height": 18,
+                    "ui_role": "pin_big"
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/2de58cc981d0472d2cdd91b1683be590513ce72bb7903a4e977b7389/d324a6fb/@2x.png",
+                    "width": 38,
+                    "height": 41,
+                    "ui_role": "pin",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/b4f7373a7be8ed40ddb5a30f701c83e1dd55322e1e98f7b3b6e7f861/d324a6fb/@2x.png",
+                    "width": 11,
+                    "height": 12,
+                    "ui_role": "pin_small",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/ef8f68b2309471d65093cbce77dc2ae81aad6e133460648115600445/d324a6fb/@2x.png",
+                    "width": 18,
+                    "height": 18,
+                    "ui_role": "pin_big",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/db1134a025fe35e5138aeedeaac229b231e639e521281714c8c5276e/d324a6fb/@2x.png",
+                    "width": 15,
+                    "height": 16,
+                    "ui_role": "vehicle_compact",
+                    "is_generic": true
+                  },
+                  {
+                    "url": "https://d3440lt1d9mf95.cloudfront.net/1403a6bce9d32a85e8b1739818699862112481edb570f774ffde2bb3/d324a6fb/@2x.png",
+                    "width": 24,
+                    "height": 33,
+                    "ui_role": "vehicle",
+                    "is_generic": true
+                  }
+                ]
+              },
+              "images": [
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/3cd9d0ee946ff4b4376346eabd45d6d47901c8c35790a1b75d538f8c/d324a6fb/@2x.png",
+                  "width": 24,
+                  "height": 24,
+                  "ui_role": "service"
+                },
+                {
+                  "url": "https://d3440lt1d9mf95.cloudfront.net/de57e2a9b140fd0f9ebe4d5cc5af2237779c8267e7e9ec6a5446bc14/d324a6fb/@2x.png",
+                  "width": 16,
+                  "height": 16,
+                  "ui_role": "service"
+                }
+              ],
+              "color": "#D799AF",
+              "background_color": "#D18BA4",
+              "text_color": "#113B92"
+            }
+          ],
+          "travel_mode": "transit",
+          "stops": [
+            {
+              "id": "WestHam",
+              "name": "West Ham",
+              "coordinates": {
+                "lat": 51.528182,
+                "lon": 0.00504
+              }
+            },
+            {
+              "id": "BromleyByBow",
+              "name": "Bromley-by-Bow",
+              "coordinates": {
+                "lat": 51.52477,
+                "lon": -0.011662
+              }
+            },
+            {
+              "id": "BowRoad",
+              "name": "Bow Road",
+              "coordinates": {
+                "lat": 51.5268,
+                "lon": -0.024824
+              }
+            },
+            {
+              "id": "MileEnd",
+              "name": "Mile End",
+              "coordinates": {
+                "lat": 51.525082,
+                "lon": -0.033289
+              }
+            },
+            {
+              "id": "StepneyGreen",
+              "name": "Stepney Green",
+              "coordinates": {
+                "lat": 51.522026,
+                "lon": -0.046875
+              }
+            },
+            {
+              "id": "Whitechapel",
+              "name": "Whitechapel",
+              "coordinates": {
+                "lat": 51.519455,
+                "lon": -0.059985
+              }
+            },
+            {
+              "id": "AldgateEast",
+              "name": "Aldgate East",
+              "coordinates": {
+                "lat": 51.515233,
+                "lon": -0.072287
+              }
+            }
+          ],
+          "direction_description": "Westbound",
+          "best_boarding_sections": {
+            "front": true,
+            "middle": false,
+            "back": false
+          }
+        },
+        {
+          "duration_seconds": 964,
+          "path": "iqlyH`bMFGDJ??????@?@???????HTLDVdAZtAJ^FRFPJX??@???@@@?@??@BF@B@DBABCFDH?RI@CPKZWJETGDA@@B@RI?B?DHA@?DBJEHCD@LC@?BAFAFEREf@G`@ADAF?bBOFATCF?D?FADA^EXERCBIHCFEBG@?F@B?JFVDDBDB@@?CBEJKBAP?jAC??@B@AB?B?VHF@F@F@JHDF@HF??B@F@D?BDBB@DDBDF?DFNNPPLLLJDDHF^Tn@RANABf@HF?r@JpGv@\\F?E@EPDJ?RHd@X|BtA\\RNJz@f@HF",
+          "updatable_detail": {
+            "leg_departure_time": "2022-12-24T23:24:00+00:00",
+            "leg_arrival_time": "2022-12-24T23:40:04+00:00"
+          },
+          "travel_mode": "walk",
+          "station_walk_type": "exit_station",
+          "walk_details_exit_station": {
+            "recommended_exit": {
+              "id": "AldgateEast_E2_Toynbee",
+              "stop_id": "AldgateEast",
+              "coordinates": {
+                "lat": 51.515251,
+                "lon": -0.072172
+              },
+              "name": "Toynbee Hall",
+              "short_name": "2"
+            },
+            "alternate_exits": [
+              {
+                "id": "AldgateEast_E1_Leman",
+                "stop_id": "AldgateEast",
+                "coordinates": {
+                  "lat": 51.515036,
+                  "lon": -0.071936
+                },
+                "name": "Leman St",
+                "short_name": "1"
+              },
+              {
+                "id": "AldgateEast_E3_WchapGal",
+                "stop_id": "AldgateEast",
+                "coordinates": {
+                  "lat": 51.5160292,
+                  "lon": -0.070209
+                },
+                "name": "Whitechapel Gallery",
+                "short_name": "3"
+              },
+              {
+                "id": "AldgateEast_E4_WchapRd",
+                "stop_id": "AldgateEast",
+                "coordinates": {
+                  "lat": 51.5157889,
+                  "lon": -0.0700089
+                },
+                "name": "Whitechapel Road (South Side)",
+                "short_name": "4"
+              }
+            ],
+            "duration_seconds": 90
+          }
+        }
+      ],
+      "route_departure_time": "2022-12-24T22:53:57+00:00",
+      "route_arrival_time": "2022-12-24T23:40:04+00:00",
+      "signature": "v2.eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjbTp0cmFuc2l0MSIsImlhdCI6MTY3MTkyMjQzOSwiZnJvbnRlbmRfc2lnbmF0dXJlIjoie1wiY2FyXCI6NzE4NixcImR1cmF0aW9uXCI6Mjc2NyxcImVuZFwiOntcImNvb3Jkc1wiOlwiNTEuNTA1NDU2LC0wLjA3NTM1NlwifSxcImpyX2luZGV4XCI6NCxcImxlZ3NcIjpbe1wiZGlzdGFuY2VcIjo1MjUsXCJkdXJhdGlvblwiOjUwMixcImVjXCI6XCI1MS41MTQ0NCwwLjAwODcxXCIsXCJpbl9zdGF0aW9uXCI6XCIwLzEyMFwiLFwibW9kZVwiOlwid2Fsa1wiLFwic2NcIjpcIjUxLjUxNDAzLDAuMDEzNjlcIixcInRvX2V4aXRcIjpcIkNhbm5pbmdUb3duX0UyODY0XCJ9LHtcImRlcGFydHVyZXNcIjpbNzgzXSxcImR1cmF0aW9uXCI6MTIwLFwiZW5kXCI6XCJXZXN0SGFtXCIsXCJtb2RlXCI6XCJ0cmFuc2l0XCIsXCJyb3V0ZV9pZHNcIjpbXCJKdWJpbGVlXCJdLFwic3RhcnRcIjpcIkNhbm5pbmdUb3duXCIsXCJzdG9wX2NvdW50XCI6MixcInN0b3BfaWRzXCI6W1wiUGxhdGZvcm1fQ2FubmluZ1Rvd25fSl9kTlwiLFwiUGxhdGZvcm1fV2VzdEhhbV9KX2ROXCJdfSx7XCJkaXN0YW5jZVwiOjAsXCJkdXJhdGlvblwiOjE4MCxcImVjXCI6XCI1MS41MjgxOCwwLjAwNTA0XCIsXCJpbl9zdGF0aW9uXCI6XCIxLzE4MFwiLFwibW9kZVwiOlwid2Fsa1wiLFwic2NcIjpcIjUxLjUyODE4LDAuMDA1MDRcIn0se1wiZGVwYXJ0dXJlc1wiOlsxMDgzXSxcImR1cmF0aW9uXCI6NzIwLFwiZW5kXCI6XCJBbGRnYXRlRWFzdFwiLFwibW9kZVwiOlwidHJhbnNpdFwiLFwicm91dGVfaWRzXCI6W1wiRGlzdHJpY3RcIixcIkhhbW1lcnNtaXRoQW5kQ2l0eVwiXSxcInN0YXJ0XCI6XCJXZXN0SGFtXCIsXCJzdG9wX2NvdW50XCI6NyxcInN0b3BfaWRzXCI6W1wiUGxhdGZvcm1fV2VzdEhhbV9ESGNfZFdcIixcIlBsYXRmb3JtX0FsZGdhdGVFYXN0X0RIY19kV1wiXX0se1wiZGlzdGFuY2VcIjoxMjMzLFwiZHVyYXRpb25cIjo5NjQsXCJlY1wiOlwiNTEuNTA1NDcsLTAuMDc1NFwiLFwiZnJvbV9leGl0XCI6XCJBbGRnYXRlRWFzdF9FMl9Ub3luYmVlXCIsXCJpbl9zdGF0aW9uXCI6XCIyLzkwXCIsXCJtb2RlXCI6XCJ3YWxrXCIsXCJzY1wiOlwiNTEuNTE1MjUsLTAuMDcyMTdcIn1dLFwicHJpY2VfcGVuY2VcIjoyNjAsXCJyZWdpb25cIjpcInVrLWxvbmRvblwiLFwicm91dGluZ19yZXF1ZXN0X2lkXCI6XCI2YzNkMWNhNi03MGY4LTRiZDUtYjE5MC05MWE4ZTQ3YmMwYzRcIixcInN0YXJ0XCI6e1wiY29vcmRzXCI6XCI1MS41MTQwMjEsMC4wMTM1ODFcIn0sXCJ0aW1lXCI6XCIyMDIyLTEyLTI0VDIyOjUzOjU3KzAwOjAwL0RFUEFSVF9BVFwiLFwidmVyc2lvblwiOjN9IiwicmVnaW9uX2lkIjoidWstbG9uZG9uIn0.d5sFjEUAHxK9d5Y8Eu-vH4ovJ3sDA2MGEegctKCu95Q",
+      "requested_time": "2022-12-24T22:53:57+00:00",
+      "requested_time_type": "depart"
+    }
+  ]
+}

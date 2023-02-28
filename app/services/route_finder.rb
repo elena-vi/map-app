@@ -18,6 +18,16 @@ class RouteFinder < ApplicationService
       time_type: 'depart',
       language: 'en'
     }
+
+    if ENV["STUB_CITY_MAPPER"]
+      require "json"
+      file = File.open "app/services/stub.json"
+      data = JSON.load file
+      json_object = JSON.parse(data.to_json, object_class: OpenStruct)
+
+      return json_object
+    end
+
     url = URI(API_URL+params.to_param)
 
     https = Net::HTTP.new(url.host, url.port)
@@ -27,9 +37,8 @@ class RouteFinder < ApplicationService
 
 
     response = https.request(request)
-    route = Route.new
-    route.from_json(response.read_body)
+    json_object = JSON.parse(response.read_body, object_class: OpenStruct)
 
-    return route
+    return json_object
   end
 end

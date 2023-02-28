@@ -2,7 +2,7 @@
 class Route
   include ActiveModel::Serializers::JSON
 
-  attr_accessor :routes, :language
+  attr_accessor :routes, :language, :error_code, :message
 
   def attributes=(hash)
     hash.each do |key, value|
