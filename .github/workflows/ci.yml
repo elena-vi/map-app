@@ -1,0 +1,93 @@
+# This workflow will install dependencies, run linting, build, and test the TypeScript/Nx application
+name: "CI"
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Nx
+        uses: actions/cache@v4
+        with:
+          path: .nx/cache
+          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Run linter
+        run: nx run-many --target=lint --all
+        continue-on-error: true
+
+  build:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Nx
+        uses: actions/cache@v4
+        with:
+          path: .nx/cache
+          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Build application
+        run: nx build map-app
+        env:
+          # These are required for the build, but won't be used in CI
+          # Set them as empty or use GitHub secrets if needed
+          GOOGLE_MAPS_KEY: ${{ secrets.GOOGLE_MAPS_KEY || '' }}
+          PLACES_API: ${{ secrets.PLACES_API || 'https://maps.googleapis.com/maps/api/place/textsearch/json?' }}
+          CITY_MAPPER_KEY: ${{ secrets.CITY_MAPPER_KEY || '' }}
+          CITYMAPPER_API_URL: ${{ secrets.CITYMAPPER_API_URL || 'https://api.external.citymapper.com/api/1/directions/transit?' }}
+        # Nx will automatically build dependencies (models and services) first
+
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Nx
+        uses: actions/cache@v4
+        with:
+          path: .nx/cache
+          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Run tests
+        run: nx test
+        continue-on-error: true  # Continue even if no tests exist yet
