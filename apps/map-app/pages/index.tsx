@@ -8,8 +8,8 @@ export default function Home() {
   const [longitude, setLongitude] = useState<string>('');
   const [destination, setDestination] = useState<string>('');
   const [error, setError] = useState<string>('');
-  const [submitDisabled, setSubmitDisabled] = useState<boolean>(true);
-  const [buttonText, setButtonText] = useState<string>('.............');
+  const [submitDisabled, setSubmitDisabled] = useState<boolean>(false);
+  const [buttonText, setButtonText] = useState<string>('Find your way');
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -21,11 +21,19 @@ export default function Home() {
           setButtonText('Find your way');
         },
         (err) => {
-          setError('Geolocation is not supported by this browser or permission was denied.');
+          setError(
+            'Geolocation permission was denied. Please enter your location manually.'
+          );
+          setSubmitDisabled(false);
+          setButtonText('Find your way');
         }
       );
     } else {
-      setError('Geolocation is not supported by this browser.');
+      setError(
+        'Geolocation is not supported by this browser. Please enter your location manually.'
+      );
+      setSubmitDisabled(false);
+      setButtonText('Find your way');
     }
   }, []);
 
@@ -52,20 +60,26 @@ export default function Home() {
         <h3>Where are you going?</h3>
         {error && <strong style={{ color: 'red' }}>{error}</strong>}
         <form onSubmit={handleSubmit}>
-          <div style={{ display: 'none' }}>
+          <div style={{ display: error ? 'block' : 'none', marginBottom: '15px' }}>
+            <label htmlFor="latitude">Your latitude</label>
             <input
               type="text"
+              id="latitude"
               name="latitude"
               value={latitude}
               onChange={(e) => setLatitude(e.target.value)}
               required
+              style={{ width: '100%', padding: '8px', marginTop: '5px', marginBottom: '10px' }}
             />
+            <label htmlFor="longitude">Your longitude</label>
             <input
               type="text"
+              id="longitude"
               name="longitude"
               value={longitude}
               onChange={(e) => setLongitude(e.target.value)}
               required
+              style={{ width: '100%', padding: '8px', marginTop: '5px' }}
             />
           </div>
           <div style={{ marginBottom: '15px' }}>
