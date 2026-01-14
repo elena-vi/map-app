@@ -18,16 +18,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Cache Nx
         uses: actions/cache@v4
         with:
           path: .nx/cache
-          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/package-lock.json') }}
+          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run linter
         run: nx run-many --target=lint --all
@@ -44,16 +44,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Cache Nx
         uses: actions/cache@v4
         with:
           path: .nx/cache
-          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/package-lock.json') }}
+          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Build application
         run: nx build map-app
@@ -77,16 +77,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'yarn'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Cache Nx
         uses: actions/cache@v4
         with:
           path: .nx/cache
-          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/package-lock.json') }}
+          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/yarn.lock') }}
 
       - name: Run tests
         run: nx test
