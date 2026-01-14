@@ -175,7 +175,11 @@ export default function RoutePage() {
   return (
     <>
       <Head>
-        <title>Route Options</title>
+        <title>Route Options | YAMA - Yet Another Map App</title>
+        <meta name="description" content="View detailed transit route options with YAMA. Compare routes, arrival times, and prices for your journey." />
+        <meta name="keywords" content="yama, yet another map app, transit routes, route options, public transportation, directions" />
+        <meta property="og:title" content="Route Options | YAMA" />
+        <meta property="og:description" content="View detailed transit route options with arrival times and pricing." />
       </Head>
       <Container maxWidth="lg">
         <Box sx={{ mt: 4, mb: 4 }}>

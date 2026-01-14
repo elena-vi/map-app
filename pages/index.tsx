@@ -136,7 +136,32 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Map App - Find Your Way</title>
+        <title>YAMA | Find Your Way</title>
+        <meta name="description" content="YAMA (Yet Another Map App) helps you find the best transit routes and directions. Plan your journey with real-time public transportation information." />
+        <meta name="keywords" content="yama, yet another map app, transit routes, public transportation, directions, route planner, map directions" />
+        <meta property="og:title" content="YAMA - Yet Another Map App | Find Your Way" />
+        <meta property="og:description" content="Plan your journey with YAMA. Find the best transit routes and directions with real-time public transportation information." />
+        <meta property="og:url" content="https://your-domain.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "YAMA",
+              "alternateName": "Yet Another Map App",
+              "description": "Find the best transit routes and directions with real-time public transportation information",
+              "url": "https://your-domain.com",
+              "applicationCategory": "TravelApplication",
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }),
+          }}
+        />
       </Head>
       <Container maxWidth="sm">
         <Box sx={{ mt: 4, mb: 4 }}>
