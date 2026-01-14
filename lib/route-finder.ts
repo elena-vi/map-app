@@ -48,10 +48,10 @@ export class RouteFinder {
 
     // Transform legs
     const legs: RouteLeg[] = (googleRoute.legs || []).map((leg: any) => {
-      const travelMode = leg.travelMode || 'TRANSIT';
+      const travelMode = leg.travelMode || leg.travel_mode || 'TRANSIT';
       return {
-        travel_mode: travelMode,
         ...leg,
+        travel_mode: travelMode,
       };
     });
 
@@ -61,17 +61,19 @@ export class RouteFinder {
     const price: RoutePrice = transitFare
       ? { 
           formatted: transitFare.text || 
-                     (transitFare.value ? `${transitFare.currencyCode || ''} ${transitFare.value}` : 'N/A'),
+                     (transitFare.value !== undefined && transitFare.value !== null 
+                       ? `${transitFare.currencyCode || ''} ${transitFare.value}`.trim() 
+                       : 'N/A'),
           ...transitFare 
         }
       : { formatted: 'N/A' };
 
     return {
+      ...googleRoute,
       route_arrival_time: arrivalTime,
       duration_seconds: durationSeconds,
       price,
       legs,
-      ...googleRoute,
     };
   }
 
@@ -133,8 +135,6 @@ export class RouteFinder {
     const routes: RouteOption[] = (googleResponse.routes || []).map((route: any) =>
       this.transformGoogleRouteToRouteOption(route)
     );
-
-    console.log(routes[0].legs);
 
     return {
       routes,

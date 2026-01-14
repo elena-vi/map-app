@@ -13,7 +13,7 @@ A TypeScript/Next.js application for finding routes and destinations, migrated f
 
 1. Install dependencies:
 ```bash
-npm install
+pnpm install
 ```
 
 2. Create a `.env.local` file in the root directory with your API keys and URLs:
@@ -32,7 +32,7 @@ You can copy `.env.example` to `.env.local` and fill in your actual API keys.
 
 3. Run the development server:
 ```bash
-npm run dev
+pnpm dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -46,7 +46,10 @@ npm run dev
 
 ## Development
 
-- Dev server: `npm run dev`
-- Build: `npm run build`
-- Start (production): `npm run start`
-- Lint: `npm run lint`
+- Dev server: `pnpm dev`
+- Build: `pnpm build`
+- Start (production): `pnpm start`
+- Lint: `pnpm lint`
+- Test: `pnpm test`
+- Test (watch): `pnpm test:watch`
+- Test (coverage): `pnpm test:coverage`

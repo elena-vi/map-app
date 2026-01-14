@@ -199,7 +199,7 @@ export default function RoutePage() {
                     </Typography>
                   </Box>
                   <Chip
-                    label={`Price: ${routeOption.price?.formatted || 'N/A'}`}
+                    label={`Price: ${routeOption.localizedValues?.transitFare?.text || 'N/A'}`}
                     color="primary"
                     variant="outlined"
                   />

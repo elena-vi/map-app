@@ -5,14 +5,14 @@ FROM node:20-alpine AS base
 FROM base AS deps
 WORKDIR /app
 
+# Install pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
 # Copy package files
-COPY package.json yarn.lock* package-lock.json* ./
+COPY package.json pnpm-lock.yaml* ./
 
 # Install dependencies
-RUN if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+RUN pnpm install --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM base AS builder
@@ -29,10 +29,7 @@ ARG GOOGLE_ROUTES_API_URL
 ENV NEXT_TELEMETRY_DISABLED=1
 
 # Build the application
-RUN if [ -f yarn.lock ]; then yarn build; \
-  elif [ -f package-lock.json ]; then npm run build; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+RUN pnpm build
 
 # Production image, copy all the files and run next
 FROM base AS runner

@@ -1,0 +1,52 @@
+// Learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom'
+
+// Mock Next.js router
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      route: '/',
+      pathname: '/',
+      query: {},
+      asPath: '/',
+      push: jest.fn(),
+      replace: jest.fn(),
+      reload: jest.fn(),
+      back: jest.fn(),
+      prefetch: jest.fn().mockResolvedValue(undefined),
+      beforePopState: jest.fn(),
+      events: {
+        on: jest.fn(),
+        off: jest.fn(),
+        emit: jest.fn(),
+      },
+    }
+  },
+}))
+
+// Mock Next.js Image component
+jest.mock('next/image', () => ({
+  __esModule: true,
+  default: (props) => {
+    // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text
+    return <img {...props} />
+  },
+}))
+
+// Mock Next.js Head component
+jest.mock('next/head', () => ({
+  __esModule: true,
+  default: ({ children }) => {
+    return <>{children}</>
+  },
+}))
+
+// Mock geolocation API
+global.navigator.geolocation = {
+  getCurrentPosition: jest.fn(),
+  watchPosition: jest.fn(),
+  clearWatch: jest.fn(),
+}
+
+// Mock fetch globally
+global.fetch = jest.fn()
