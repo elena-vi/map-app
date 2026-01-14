@@ -32,9 +32,40 @@ jobs:
         run: pnpm lint
         continue-on-error: true
 
-  build:
+  test:
     runs-on: ubuntu-latest
     needs: lint
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        run: pnpm test -- --coverage
+        env:
+          # These are required for the build, but won't be used in CI
+          # Set them as empty or use GitHub secrets if needed
+          GOOGLE_MAPS_KEY: ''
+          PLACES_API: 'https://maps.googleapis.com/maps/api/place/textsearch/json?'
+          GOOGLE_ROUTES_API_KEY: ''
+          GOOGLE_ROUTES_API_URL: 'https://routes.googleapis.com/directions/v2:computeRoutes'
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Checkout code
         uses: actions/checkout@v4

@@ -116,6 +116,21 @@ describe('LocationFinder', () => {
       await expect(finder.call()).rejects.toThrow('API key invalid');
     });
 
+    it('should throw error with error_message when API returns non-OK status without error_message', async () => {
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          status: 'INVALID_REQUEST',
+        }),
+      });
+
+      process.env.GOOGLE_MAPS_KEY = 'test-key';
+      process.env.PLACES_API = 'https://maps.googleapis.com/maps/api/place/textsearch/json?';
+
+      const finder = new LocationFinder('New York');
+      await expect(finder.call()).rejects.toThrow('API returned status: INVALID_REQUEST');
+    });
+
     it('should throw error when fetch fails', async () => {
       mockFetch.mockRejectedValueOnce(new Error('Network error'));
 

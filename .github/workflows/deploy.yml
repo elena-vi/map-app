@@ -1,7 +1,10 @@
 name: "Deploy to Cloud Run"
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
     branches: [ "main", "master" ]
   workflow_dispatch:
     inputs:
@@ -19,6 +22,11 @@ env:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # Only deploy if CI workflow completed successfully (for workflow_run trigger)
+    # Or allow manual dispatch
+    if: |
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
     permissions:
       contents: read
       id-token: write
@@ -26,6 +34,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # For workflow_run, checkout the commit that triggered the CI workflow
+          ref: ${{ github.event.workflow_run.head_branch || github.ref }}
+          sha: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Authenticate to Google Cloud
         id: auth

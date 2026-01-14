@@ -124,6 +124,54 @@ describe('RouteFinder', () => {
       expect(result.legs[1].travel_mode).toBe('TRANSIT');
     });
 
+    it('should use travelMode when available (prefer travelMode over travel_mode)', () => {
+      const finder = new RouteFinder('40.7128,-74.0060', '40.7580,-73.9855');
+      const googleRoute = {
+        duration: 3600,
+        legs: [
+          {
+            travelMode: 'DRIVE',
+            travel_mode: 'WALKING', // This should be ignored
+            steps: [],
+          },
+        ],
+      };
+      const result = (finder as any).transformGoogleRouteToRouteOption(googleRoute);
+      expect(result.legs[0].travel_mode).toBe('DRIVE');
+    });
+
+    it('should use travel_mode when travelMode is falsy', () => {
+      const finder = new RouteFinder('40.7128,-74.0060', '40.7580,-73.9855');
+      const googleRoute = {
+        duration: 3600,
+        legs: [
+          {
+            travelMode: null, // falsy
+            travel_mode: 'WALKING',
+            steps: [],
+          },
+        ],
+      };
+      const result = (finder as any).transformGoogleRouteToRouteOption(googleRoute);
+      expect(result.legs[0].travel_mode).toBe('WALKING');
+    });
+
+    it('should default to TRANSIT when both travelMode and travel_mode are falsy', () => {
+      const finder = new RouteFinder('40.7128,-74.0060', '40.7580,-73.9855');
+      const googleRoute = {
+        duration: 3600,
+        legs: [
+          {
+            travelMode: undefined,
+            travel_mode: undefined,
+            steps: [],
+          },
+        ],
+      };
+      const result = (finder as any).transformGoogleRouteToRouteOption(googleRoute);
+      expect(result.legs[0].travel_mode).toBe('TRANSIT');
+    });
+
     it('should extract price from travelAdvisory', () => {
       const finder = new RouteFinder('40.7128,-74.0060', '40.7580,-73.9855');
       const googleRoute = {
@@ -214,6 +262,22 @@ describe('RouteFinder', () => {
       expect(result.price.formatted).toBe('USD 0');
     });
 
+    it('should handle price with null value', () => {
+      const finder = new RouteFinder('40.7128,-74.0060', '40.7580,-73.9855');
+      const googleRoute = {
+        duration: 3600,
+        legs: [],
+        travelAdvisory: {
+          transitFare: {
+            value: null,
+            currencyCode: 'USD',
+          },
+        },
+      };
+      const result = (finder as any).transformGoogleRouteToRouteOption(googleRoute);
+      expect(result.price.formatted).toBe('N/A');
+    });
+
     it('should handle leg duration as number', () => {
       const finder = new RouteFinder('40.7128,-74.0060', '40.7580,-73.9855');
       const departureTime = '2024-01-01T11:00:00Z';
@@ -275,6 +339,17 @@ describe('RouteFinder', () => {
       };
       const result = (finder as any).transformGoogleRouteToRouteOption(googleRoute);
       expect(result.duration_seconds).toBe(3600);
+    });
+
+    it('should handle duration string that cannot be parsed', () => {
+      const finder = new RouteFinder('40.7128,-74.0060', '40.7580,-73.9855');
+      const googleRoute = {
+        duration: 'invalid',
+        legs: [],
+      };
+      const result = (finder as any).transformGoogleRouteToRouteOption(googleRoute);
+      // parseInt('invalid'.replace('s', '')) returns NaN, so || 0 should make it 0
+      expect(result.duration_seconds).toBe(0);
     });
   });
 
@@ -464,6 +539,36 @@ describe('RouteFinder', () => {
       expect(result).toBeDefined();
       expect(result.routes).toHaveLength(1);
       expect(mockFetch).toHaveBeenCalled();
+    });
+
+    it('should handle response with undefined routes', async () => {
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({}),
+      });
+
+      process.env.GOOGLE_ROUTES_API_KEY = 'test-key';
+      process.env.GOOGLE_ROUTES_API_URL = 'https://routes.googleapis.com/directions/v2:computeRoutes';
+
+      const finder = new RouteFinder('40.7128,-74.0060', '40.7580,-73.9855');
+      const result = await finder.call();
+
+      expect(result.routes).toEqual([]);
+    });
+
+    it('should handle response with null routes', async () => {
+      mockFetch.mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ routes: null }),
+      });
+
+      process.env.GOOGLE_ROUTES_API_KEY = 'test-key';
+      process.env.GOOGLE_ROUTES_API_URL = 'https://routes.googleapis.com/directions/v2:computeRoutes';
+
+      const finder = new RouteFinder('40.7128,-74.0060', '40.7580,-73.9855');
+      const result = await finder.call();
+
+      expect(result.routes).toEqual([]);
     });
   });
 });

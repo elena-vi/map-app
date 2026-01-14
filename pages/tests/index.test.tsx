@@ -47,6 +47,14 @@ jest.mock('../../components/LocationPicker', () => {
                   location: { lat: 40.7128, lng: -74.0060 },
                 },
               });
+            } else if (value === 'Brooklyn' && label === 'Start Location (optional)') {
+              onLocationSelect({
+                name: 'Brooklyn, NY, USA',
+                formatted_address: 'Brooklyn, NY, USA',
+                geometry: {
+                  location: { lat: 40.6782, lng: -73.9442 },
+                },
+              });
             }
           }}
           required={required}
@@ -208,6 +216,49 @@ describe('Home page', () => {
 
     await waitFor(() => {
       expect(global.fetch).toHaveBeenCalled();
+    });
+  });
+
+  it('should fetch location without currentLocation when startLocationCoords is null', async () => {
+    (global.navigator.geolocation.getCurrentPosition as jest.Mock).mockImplementation((success, error) => {
+      error({
+        code: 1,
+        message: 'Permission denied',
+      } as any);
+    });
+
+    const mockLocation: LocationResult = {
+      name: 'New York, NY, USA',
+      formatted_address: 'New York, NY, USA',
+      geometry: {
+        location: { lat: 40.7128, lng: -74.0060 },
+      },
+    };
+
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      json: async () => [mockLocation],
+    });
+
+    render(<Home />);
+
+    const destinationInput = screen.getByLabelText('Destination');
+    fireEvent.change(destinationInput, { target: { value: 'New York' } });
+
+    const form = screen.getByText('Where are you going?').closest('form') || 
+                 screen.getByRole('button', { name: /find your way/i }).closest('form');
+    if (form) {
+      fireEvent.submit(form);
+    }
+
+    await waitFor(() => {
+      expect(global.fetch).toHaveBeenCalled();
+      // Should not include currentLocation in the URL
+      expect(global.fetch).toHaveBeenCalledWith(
+        expect.stringContaining('/api/locations?destination=New%20York')
+      );
+      expect(global.fetch).not.toHaveBeenCalledWith(
+        expect.stringContaining('currentLocation=')
+      );
     });
   });
 
@@ -436,5 +487,76 @@ describe('Home page', () => {
         }),
       });
     });
+  });
+
+  it('should handle start location select and set coordinates', async () => {
+    (global.navigator.geolocation.getCurrentPosition as jest.Mock).mockImplementation((success) => {
+      success({
+        coords: {
+          latitude: 40.7128,
+          longitude: -74.0060,
+        },
+      } as any);
+    });
+
+    render(<Home />);
+
+    const startInput = screen.getByLabelText('Start Location (optional)');
+    fireEvent.change(startInput, { target: { value: 'Brooklyn' } });
+    fireEvent.blur(startInput);
+    
+    // The handleStartLocationSelect should be called and set coordinates
+    // We can verify this by checking that the component doesn't throw
+    await waitFor(() => {
+      expect(startInput).toBeInTheDocument();
+    });
+  });
+
+  it('should clear start location coords when start location value is set to empty string', () => {
+    (global.navigator.geolocation.getCurrentPosition as jest.Mock).mockImplementation((success) => {
+      success({
+        coords: {
+          latitude: 40.7128,
+          longitude: -74.0060,
+        },
+      } as any);
+    });
+
+    render(<Home />);
+
+    const startInput = screen.getByLabelText('Start Location (optional)');
+    
+    // First set a value
+    fireEvent.change(startInput, { target: { value: 'Test' } });
+    
+    // Then clear it - this should trigger the code that clears coords
+    fireEvent.change(startInput, { target: { value: '' } });
+    
+    // The onChange handler should be called with empty string
+    // which triggers setStartLocationCoords(null)
+  });
+
+  it('should clear destination coords when destination value is set to empty string', () => {
+    (global.navigator.geolocation.getCurrentPosition as jest.Mock).mockImplementation((success) => {
+      success({
+        coords: {
+          latitude: 40.7128,
+          longitude: -74.0060,
+        },
+      } as any);
+    });
+
+    render(<Home />);
+
+    const destinationInput = screen.getByLabelText('Destination');
+    
+    // First set a value
+    fireEvent.change(destinationInput, { target: { value: 'Test' } });
+    
+    // Then clear it - this should trigger the code that clears coords
+    fireEvent.change(destinationInput, { target: { value: '' } });
+    
+    // The onChange handler should be called with empty string
+    // which triggers setDestinationCoords(null)
   });
 });

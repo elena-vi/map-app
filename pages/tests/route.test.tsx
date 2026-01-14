@@ -729,6 +729,63 @@ describe('Route page', () => {
     await waitFor(() => {
       expect(screen.getByText('Route Options')).toBeInTheDocument();
     }, { timeout: 3000 });
+
+    // The formatTime function handles invalid dates
+    // new Date('invalid-date') creates an Invalid Date, and toLocaleTimeString 
+    // on it returns "Invalid Date" string, so the catch block might not be reached
+    // But the component should still render without error
+    const arrivalText = screen.getByText(/Arrival:/i);
+    expect(arrivalText).toBeInTheDocument();
+  });
+
+  it('should handle formatTime catch block when toLocaleTimeString throws', async () => {
+    // Mock toLocaleTimeString to throw an error to test the catch block
+    const originalToLocaleTimeString = Date.prototype.toLocaleTimeString;
+    let callCount = 0;
+    Date.prototype.toLocaleTimeString = jest.fn(() => {
+      callCount++;
+      if (callCount === 1) {
+        // First call (for route_arrival_time) - throw error
+        throw new Error('Locale error');
+      }
+      // Subsequent calls should work normally
+      return originalToLocaleTimeString.call(this);
+    });
+
+    const mockRoute: Route = {
+      routes: [
+        {
+          route_arrival_time: '2024-01-01T12:00:00Z',
+          duration_seconds: 3600,
+          price: { formatted: '$2.75' },
+          legs: [],
+        },
+      ],
+      language: 'en',
+    };
+
+    setRouterQuery({
+      start_location: '40.7128,-74.0060',
+      end_location: '40.7580,-73.9855',
+    });
+
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      json: async () => mockRoute,
+    });
+
+    render(<RoutePage />);
+
+    await waitFor(() => {
+      expect(screen.getByText('Route Options')).toBeInTheDocument();
+    }, { timeout: 3000 });
+
+    // When toLocaleTimeString throws, formatTime should return the original string
+    // It should appear in the "Arrival:" section
+    // Use a regex matcher since the text is split across nodes
+    expect(screen.getByText(/2024-01-01T12:00:00Z/)).toBeInTheDocument();
+
+    // Restore original method
+    Date.prototype.toLocaleTimeString = originalToLocaleTimeString;
   });
 
   it('should format time with empty string', async () => {
@@ -961,6 +1018,224 @@ describe('Route page', () => {
     });
   });
 
+  it('should display Transit when transitLine name is missing', async () => {
+    const mockRoute: Route = {
+      routes: [
+        {
+          route_arrival_time: '2024-01-01T12:00:00Z',
+          duration_seconds: 3600,
+          price: { formatted: '$2.75' },
+          legs: [
+            {
+              travel_mode: 'TRANSIT',
+              steps: [
+                {
+                  transitDetails: {
+                    transitLine: {
+                      // name is missing/undefined
+                      color: 'FF0000',
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      language: 'en',
+    };
+
+    setRouterQuery({
+      start_location: '40.7128,-74.0060',
+      end_location: '40.7580,-73.9855',
+    });
+
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      json: async () => mockRoute,
+    });
+
+    render(<RoutePage />);
+
+    await waitFor(() => {
+      expect(screen.getByText('Route Options')).toBeInTheDocument();
+    });
+
+    // Expand the accordion
+    const accordionSummary = screen.getByText(/Duration:.*1h/i).closest('.MuiAccordionSummary-root');
+    if (accordionSummary) {
+      fireEvent.click(accordionSummary as HTMLElement);
+    }
+
+    await waitFor(() => {
+      // Should display 'Transit' as fallback when name is missing
+      expect(screen.getByText('Transit')).toBeInTheDocument();
+    });
+  });
+
+  it('should handle step without transitDetails and with travel_mode fallback', async () => {
+    const mockRoute: Route = {
+      routes: [
+        {
+          route_arrival_time: '2024-01-01T12:00:00Z',
+          duration_seconds: 600,
+          price: { formatted: 'N/A' },
+          legs: [
+            {
+              travel_mode: 'WALKING',
+              steps: [
+                {
+                  // No transitDetails, and no travelMode, only travel_mode
+                  travel_mode: 'WALKING',
+                  instructions: 'Walk north',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      language: 'en',
+    };
+
+    setRouterQuery({
+      start_location: '40.7128,-74.0060',
+      end_location: '40.7580,-73.9855',
+    });
+
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      json: async () => mockRoute,
+    });
+
+    render(<RoutePage />);
+
+    await waitFor(() => {
+      expect(screen.getByText('Route Options')).toBeInTheDocument();
+    });
+
+    // Expand the accordion
+    const accordionSummary = screen.getByText(/Duration:.*10 min/i).closest('.MuiAccordionSummary-root');
+    if (accordionSummary) {
+      fireEvent.click(accordionSummary as HTMLElement);
+    }
+
+    await waitFor(() => {
+      expect(screen.getByText(/Walk north/i)).toBeInTheDocument();
+    });
+  });
+
+  it('should handle step without transitDetails using travelMode when available', async () => {
+    const mockRoute: Route = {
+      routes: [
+        {
+          route_arrival_time: '2024-01-01T12:00:00Z',
+          duration_seconds: 600,
+          price: { formatted: 'N/A' },
+          legs: [
+            {
+              travel_mode: 'WALKING',
+              steps: [
+                {
+                  // No transitDetails, has travelMode (should be used first)
+                  travelMode: 'DRIVE',
+                  travel_mode: 'WALKING', // This should be ignored since travelMode exists
+                  instructions: 'Drive north',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      language: 'en',
+    };
+
+    setRouterQuery({
+      start_location: '40.7128,-74.0060',
+      end_location: '40.7580,-73.9855',
+    });
+
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      json: async () => mockRoute,
+    });
+
+    render(<RoutePage />);
+
+    await waitFor(() => {
+      expect(screen.getByText('Route Options')).toBeInTheDocument();
+    });
+
+    // Expand the accordion
+    const accordionSummary = screen.getByText(/Duration:.*10 min/i).closest('.MuiAccordionSummary-root');
+    if (accordionSummary) {
+      fireEvent.click(accordionSummary as HTMLElement);
+    }
+
+    await waitFor(() => {
+      // Should use travelMode (DRIVE) not travel_mode (WALKING)
+      // getTravelModeLabel('DRIVE') returns 'Drive'
+      expect(screen.getByText('Drive north')).toBeInTheDocument();
+    }, { timeout: 3000 });
+
+    // Check that the travel mode label is displayed (should be "Drive" for DRIVE)
+    const driveLabel = screen.getByText('Drive');
+    expect(driveLabel).toBeInTheDocument();
+  });
+
+  it('should default to WALKING when step has no transitDetails and both travelMode and travel_mode are falsy', async () => {
+    const mockRoute: Route = {
+      routes: [
+        {
+          route_arrival_time: '2024-01-01T12:00:00Z',
+          duration_seconds: 600,
+          price: { formatted: 'N/A' },
+          legs: [
+            {
+              travel_mode: 'WALKING',
+              steps: [
+                {
+                  // No transitDetails, no travelMode, no travel_mode - should default to WALKING
+                  travelMode: undefined,
+                  travel_mode: undefined,
+                  instructions: 'Move forward',
+                },
+              ],
+            },
+          ],
+        },
+      ],
+      language: 'en',
+    };
+
+    setRouterQuery({
+      start_location: '40.7128,-74.0060',
+      end_location: '40.7580,-73.9855',
+    });
+
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      json: async () => mockRoute,
+    });
+
+    render(<RoutePage />);
+
+    await waitFor(() => {
+      expect(screen.getByText('Route Options')).toBeInTheDocument();
+    });
+
+    // Expand the accordion
+    const accordionSummary = screen.getByText(/Duration:.*10 min/i).closest('.MuiAccordionSummary-root');
+    if (accordionSummary) {
+      fireEvent.click(accordionSummary as HTMLElement);
+    }
+
+    await waitFor(() => {
+      // Should default to WALKING when both travelMode and travel_mode are falsy
+      // getTravelModeLabel('WALKING') returns 'Walk'
+      expect(screen.getByText('Move forward')).toBeInTheDocument();
+    }, { timeout: 3000 });
+
+    // Check that the travel mode label is displayed (should be "Walk" for WALKING)
+    const walkLabel = screen.getByText('Walk');
+    expect(walkLabel).toBeInTheDocument();
+  });
+
   it('should handle transit details without all fields', async () => {
     const mockRoute: Route = {
       routes: [
@@ -1077,5 +1352,93 @@ describe('Route page', () => {
     await waitFor(() => {
       expect(screen.getByText('Route Options')).toBeInTheDocument();
     }, { timeout: 3000 });
+  });
+
+  it('should display DRIVE travel mode icon', async () => {
+    const mockRoute: Route = {
+      routes: [
+        {
+          route_arrival_time: '2024-01-01T12:00:00Z',
+          duration_seconds: 1800,
+          price: { formatted: 'N/A' },
+          legs: [
+            {
+              travel_mode: 'DRIVE',
+              steps: [],
+            },
+          ],
+        },
+      ],
+      language: 'en',
+    };
+
+    setRouterQuery({
+      start_location: '40.7128,-74.0060',
+      end_location: '40.7580,-73.9855',
+    });
+
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      json: async () => mockRoute,
+    });
+
+    render(<RoutePage />);
+
+    await waitFor(() => {
+      expect(screen.getByText('Route Options')).toBeInTheDocument();
+    });
+
+    // Expand the accordion to see the leg details
+    const accordionSummary = screen.getByText(/Duration:.*30 min/i).closest('.MuiAccordionSummary-root');
+    if (accordionSummary) {
+      fireEvent.click(accordionSummary as HTMLElement);
+    }
+
+    await waitFor(() => {
+      expect(screen.getByText(/Leg.*Drive/i)).toBeInTheDocument();
+    });
+  });
+
+  it('should display BICYCLE travel mode icon', async () => {
+    const mockRoute: Route = {
+      routes: [
+        {
+          route_arrival_time: '2024-01-01T12:00:00Z',
+          duration_seconds: 1200,
+          price: { formatted: 'N/A' },
+          legs: [
+            {
+              travel_mode: 'BICYCLE',
+              steps: [],
+            },
+          ],
+        },
+      ],
+      language: 'en',
+    };
+
+    setRouterQuery({
+      start_location: '40.7128,-74.0060',
+      end_location: '40.7580,-73.9855',
+    });
+
+    (global.fetch as jest.Mock).mockResolvedValueOnce({
+      json: async () => mockRoute,
+    });
+
+    render(<RoutePage />);
+
+    await waitFor(() => {
+      expect(screen.getByText('Route Options')).toBeInTheDocument();
+    });
+
+    // Expand the accordion to see the leg details
+    const accordionSummary = screen.getByText(/Duration:.*20 min/i).closest('.MuiAccordionSummary-root');
+    if (accordionSummary) {
+      fireEvent.click(accordionSummary as HTMLElement);
+    }
+
+    await waitFor(() => {
+      expect(screen.getByText(/Leg.*Bike/i)).toBeInTheDocument();
+    });
   });
 });

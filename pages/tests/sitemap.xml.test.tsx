@@ -50,4 +50,10 @@ describe('sitemap.xml', () => {
     expect(sitemap).toContain('<priority>');
     expect(sitemap).toContain('<changefreq>');
   });
+
+  it('should export SiteMap component', () => {
+    const SiteMap = require('../sitemap.xml').default;
+    expect(SiteMap).toBeDefined();
+    expect(typeof SiteMap).toBe('function');
+  });
 });

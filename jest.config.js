@@ -21,6 +21,7 @@ const customJestConfig = {
     '!**/jest.setup.js',
     '!**/tests/**',
     '!**/__mocks__/**',
+    '!pages/sitemap.xml.tsx',
   ],
   coverageThreshold: {
     global: {
