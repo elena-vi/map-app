@@ -1,0 +1,117 @@
+name: "Deploy to Cloud Run"
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+    inputs:
+      image_tag:
+        description: 'Docker image tag (default: git commit SHA)'
+        required: false
+        default: ''
+
+env:
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  REGION: ${{ secrets.GCP_REGION || 'us-central1' }}
+  SERVICE_NAME: ${{ secrets.GCP_SERVICE_NAME || 'map-app' }}
+  ARTIFACT_REGISTRY_REPO: ${{ secrets.GCP_ARTIFACT_REGISTRY_REPO || 'map-app-repo' }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: |
+          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
+
+      - name: Generate image tag
+        id: image-tag
+        run: |
+          if [ -z "${{ github.event.inputs.image_tag }}" ]; then
+            IMAGE_TAG=$(git rev-parse --short HEAD)
+          else
+            IMAGE_TAG="${{ github.event.inputs.image_tag }}"
+          fi
+          echo "tag=$IMAGE_TAG" >> $GITHUB_OUTPUT
+          echo "Using image tag: $IMAGE_TAG"
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            --tag ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPO }}/${{ env.SERVICE_NAME }}:${{ steps.image-tag.outputs.tag }} \
+            --tag ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPO }}/${{ env.SERVICE_NAME }}:latest \
+            .
+
+      - name: Push Docker image to Artifact Registry
+        run: |
+          docker push ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPO }}/${{ env.SERVICE_NAME }}:${{ steps.image-tag.outputs.tag }}
+          docker push ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.ARTIFACT_REGISTRY_REPO }}/${{ env.SERVICE_NAME }}:latest
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.6.0"
+
+      - name: Terraform Init
+        working-directory: ./terraform
+        run: |
+          terraform init
+
+      - name: Terraform Plan
+        working-directory: ./terraform
+        run: |
+          terraform plan \
+            -var="project_id=${{ env.PROJECT_ID }}" \
+            -var="region=${{ env.REGION }}" \
+            -var="app_name=${{ env.SERVICE_NAME }}" \
+            -var="image_tag=${{ steps.image-tag.outputs.tag }}" \
+            -var="google_maps_key=${{ secrets.GOOGLE_MAPS_KEY }}" \
+            -var="google_routes_api_key=${{ secrets.GOOGLE_ROUTES_API_KEY }}" \
+            -var="places_api=${{ secrets.PLACES_API || 'https://maps.googleapis.com/maps/api/place/textsearch/json?' }}" \
+            -var="google_routes_api_url=${{ secrets.GOOGLE_ROUTES_API_URL || 'https://routes.googleapis.com/directions/v2:computeRoutes' }}"
+
+      - name: Terraform Apply
+        working-directory: ./terraform
+        run: |
+          terraform apply -auto-approve \
+            -var="project_id=${{ env.PROJECT_ID }}" \
+            -var="region=${{ env.REGION }}" \
+            -var="app_name=${{ env.SERVICE_NAME }}" \
+            -var="image_tag=${{ steps.image-tag.outputs.tag }}" \
+            -var="google_maps_key=${{ secrets.GOOGLE_MAPS_KEY }}" \
+            -var="google_routes_api_key=${{ secrets.GOOGLE_ROUTES_API_KEY }}" \
+            -var="places_api=${{ secrets.PLACES_API || 'https://maps.googleapis.com/maps/api/place/textsearch/json?' }}" \
+            -var="google_routes_api_url=${{ secrets.GOOGLE_ROUTES_API_URL || 'https://routes.googleapis.com/directions/v2:computeRoutes' }}"
+
+      - name: Get Cloud Run URL
+        id: service-url
+        run: |
+          SERVICE_URL=$(gcloud run services describe ${{ env.SERVICE_NAME }} \
+            --region=${{ env.REGION }} \
+            --format='value(status.url)')
+          echo "url=$SERVICE_URL" >> $GITHUB_OUTPUT
+          echo "Deployed to: $SERVICE_URL"
+
+      - name: Deployment Summary
+        run: |
+          echo "## 🚀 Deployment Successful" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Service URL:** ${{ steps.service-url.outputs.url }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Image Tag:** ${{ steps.image-tag.outputs.tag }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Region:** ${{ env.REGION }}" >> $GITHUB_STEP_SUMMARY

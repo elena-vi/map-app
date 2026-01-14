@@ -39,3 +39,10 @@ next-env.d.ts
 # Nx
 .nx/cache
 .nx/installation
+
+# Terraform
+terraform.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl

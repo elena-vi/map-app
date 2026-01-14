@@ -120,13 +120,15 @@ export const lightTheme = createTheme({
         root: {
           borderRadius: 999,
           backgroundColor: "#F1F3FA",
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "transparent",
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: brand.cyan.main,
+            borderWidth: 2,
+          },
         },
         notchedOutline: { borderColor: "transparent" },
-        "&:hover .MuiOutlinedInput-notchedOutline": { borderColor: "transparent" },
-        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-          borderColor: brand.cyan.main,
-          borderWidth: 2,
-        },
       },
     },
 
@@ -238,15 +240,15 @@ export const darkTheme = createTheme({
         root: {
           borderRadius: 999,
           backgroundColor: "rgba(255, 255, 255, 0.04)",
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "rgba(38, 198, 218, 0.35)",
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: brand.cyan.main,
+            borderWidth: 2,
+          },
         },
         notchedOutline: { borderColor: "rgba(255, 255, 255, 0.10)" },
-        "&:hover .MuiOutlinedInput-notchedOutline": {
-          borderColor: "rgba(38, 198, 218, 0.35)",
-        },
-        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-          borderColor: brand.cyan.main,
-          borderWidth: 2,
-        },
       },
     },
 

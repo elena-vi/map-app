@@ -1,0 +1,18 @@
+# Copy this file to terraform.tfvars and fill in your values
+# terraform.tfvars is gitignored and should not be committed
+
+project_id            = "your-gcp-project-id"
+region                = "us-central1"
+app_name              = "map-app"
+google_maps_key       = "your-google-maps-api-key"
+google_routes_api_key = "" # Optional, will use google_maps_key if empty
+places_api            = "https://maps.googleapis.com/maps/api/place/textsearch/json?"
+google_routes_api_url = "https://routes.googleapis.com/directions/v2:computeRoutes"
+
+# Optional: Adjust resource limits
+# cpu_limit            = "1"
+# memory_limit         = "512Mi"
+# container_concurrency = 80
+# timeout_seconds      = 300
+# min_instances        = "0"
+# max_instances        = "10"

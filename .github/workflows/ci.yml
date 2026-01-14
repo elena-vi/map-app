@@ -1,4 +1,4 @@
-# This workflow will install dependencies, run linting, build, and test the TypeScript/Nx application
+# This workflow will install dependencies, run linting, and build the Next.js application
 name: "CI"
 
 on:
@@ -23,14 +23,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Cache Nx
-        uses: actions/cache@v4
-        with:
-          path: .nx/cache
-          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/yarn.lock') }}
-
       - name: Run linter
-        run: nx run-many --target=lint --all
+        run: yarn lint
         continue-on-error: true
 
   build:
@@ -49,14 +43,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Cache Nx
-        uses: actions/cache@v4
-        with:
-          path: .nx/cache
-          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/yarn.lock') }}
-
       - name: Build application
-        run: nx build map-app
+        run: yarn build
         env:
           # These are required for the build, but won't be used in CI
           # Set them as empty or use GitHub secrets if needed
@@ -64,30 +52,3 @@ jobs:
           PLACES_API: ${{ secrets.PLACES_API || 'https://maps.googleapis.com/maps/api/place/textsearch/json?' }}
           GOOGLE_ROUTES_API_KEY: ${{ secrets.GOOGLE_ROUTES_API_KEY || secrets.GOOGLE_MAPS_KEY || '' }}
           GOOGLE_ROUTES_API_URL: ${{ secrets.GOOGLE_ROUTES_API_URL || 'https://routes.googleapis.com/directions/v2:computeRoutes' }}
-        # Nx will automatically build dependencies (models and services) first
-
-  test:
-    runs-on: ubuntu-latest
-    needs: lint
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'yarn'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Cache Nx
-        uses: actions/cache@v4
-        with:
-          path: .nx/cache
-          key: nx-${{ runner.os }}-${{ hashFiles('**/nx.json') }}-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Run tests
-        run: nx test
-        continue-on-error: true  # Continue even if no tests exist yet
