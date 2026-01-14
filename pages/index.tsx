@@ -1,6 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import {
+  Container,
+  Typography,
+  Button,
+  Alert,
+  Box,
+  Paper,
+} from '@mui/material';
 import { LocationResult } from '../lib/models';
 import LocationPicker from '../components/LocationPicker';
 
@@ -130,61 +138,70 @@ export default function Home() {
       <Head>
         <title>Map App - Find Your Way</title>
       </Head>
-      <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
-        <h3>Where are you going?</h3>
-        {error && <strong style={{ color: 'red' }}>{error}</strong>}
-        {currentLocationAvailable && !startLocation && (
-          <p style={{ fontSize: '14px', color: '#666', marginBottom: '15px' }}>
-            Using your current location as starting point (or enter a start location below)
-          </p>
-        )}
-        <form onSubmit={handleSubmit}>
-          <LocationPicker
-            id="startLocation"
-            value={startLocation}
-            onChange={(value) => {
-              setStartLocation(value);
-              if (value === '') {
-                setStartLocationCoords(null);
-              }
-            }}
-            onLocationSelect={handleStartLocationSelect}
-            label="Start Location (optional)"
-            placeholder="Enter start location or leave blank to use current location"
-            required={false}
-          />
-          <LocationPicker
-            id="destination"
-            value={destination}
-            onChange={(value) => {
-              setDestination(value);
-              if (value === '') {
-                setDestinationCoords(null);
-              }
-            }}
-            onLocationSelect={handleDestinationSelect}
-            label="Destination"
-            placeholder="Enter destination"
-            required={true}
-            currentLocation={
-              startLocationCoords
-                ? `${startLocationCoords.lat},${startLocationCoords.lng}`
-                : undefined
-            }
-          />
-          <button
-            type="submit"
-            disabled={submitDisabled}
-            style={{
-              padding: '10px 20px',
-              fontSize: '16px',
-              cursor: submitDisabled ? 'not-allowed' : 'pointer',
-            }}
-          >
-            {buttonText}
-          </button>
-        </form>
-      </div>
+      <Container maxWidth="sm">
+        <Box sx={{ mt: 4, mb: 4 }}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            Where are you going?
+          </Typography>
+          {error && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {error}
+            </Alert>
+          )}
+          {currentLocationAvailable && !startLocation && (
+            <Alert severity="info" sx={{ mb: 2 }}>
+              Using your current location as starting point (or enter a start location below)
+            </Alert>
+          )}
+          <Paper elevation={2} sx={{ p: 3, mt: 2 }}>
+            <form onSubmit={handleSubmit}>
+              <LocationPicker
+                id="startLocation"
+                value={startLocation}
+                onChange={(value) => {
+                  setStartLocation(value);
+                  if (value === '') {
+                    setStartLocationCoords(null);
+                  }
+                }}
+                onLocationSelect={handleStartLocationSelect}
+                label="Start Location (optional)"
+                placeholder="Enter start location or leave blank to use current location"
+                required={false}
+              />
+              <LocationPicker
+                id="destination"
+                value={destination}
+                onChange={(value) => {
+                  setDestination(value);
+                  if (value === '') {
+                    setDestinationCoords(null);
+                  }
+                }}
+                onLocationSelect={handleDestinationSelect}
+                label="Destination"
+                placeholder="Enter destination"
+                required={true}
+                currentLocation={
+                  startLocationCoords
+                    ? `${startLocationCoords.lat},${startLocationCoords.lng}`
+                    : undefined
+                }
+              />
+              <Button
+                type="submit"
+                variant="contained"
+                fullWidth
+                disabled={submitDisabled}
+                size="large"
+                sx={{ mt: 2 }}
+              >
+                {buttonText}
+              </Button>
+            </form>
+          </Paper>
+        </Box>
+      </Container>
     </>
   );
 }

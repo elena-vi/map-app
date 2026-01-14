@@ -1,4 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
+import {
+  TextField,
+  Paper,
+  List,
+  ListItem,
+  ListItemText,
+  CircularProgress,
+  Box,
+  Typography,
+  Popper,
+  ClickAwayListener,
+} from '@mui/material';
 import { LocationResult } from '../lib/models';
 
 interface LocationPickerProps {
@@ -136,83 +148,68 @@ export default function LocationPicker({
   };
 
   return (
-    <div style={{ marginBottom: '15px', position: 'relative' }}>
-      <label htmlFor={id}>{label}</label>
-      <input
-        ref={inputRef}
+    <Box sx={{ marginBottom: 2, position: 'relative' }}>
+      <TextField
+        inputRef={inputRef}
         id={id}
-        type="text"
+        fullWidth
+        label={label}
         value={value}
         onChange={handleInputChange}
         onKeyDown={handleKeyDown}
         onFocus={handleInputFocus}
         required={required}
-        style={{ width: '100%', padding: '8px', marginTop: '5px' }}
-        autoComplete="off"
         placeholder={placeholder}
+        autoComplete="off"
+        InputProps={{
+          endAdornment: loadingSuggestions && value.length >= 3 ? (
+            <CircularProgress size={20} />
+          ) : null,
+        }}
       />
-      {showSuggestions && suggestions.length > 0 && (
-        <div
-          ref={suggestionsRef}
-          style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            backgroundColor: 'white',
-            border: '1px solid #ddd',
-            borderRadius: '4px',
-            marginTop: '4px',
-            maxHeight: '300px',
-            overflowY: 'auto',
-            zIndex: 1000,
-            boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
-          }}
-        >
-          {suggestions.map((location, index) => (
-            <div
-              key={index}
-              onClick={() => handleLocationSelect(location)}
-              onMouseEnter={() => setSelectedIndex(index)}
-              style={{
-                padding: '12px',
-                cursor: 'pointer',
-                backgroundColor:
-                  selectedIndex === index ? '#f0f0f0' : 'white',
-                borderBottom:
-                  index < suggestions.length - 1
-                    ? '1px solid #eee'
-                    : 'none',
-              }}
-            >
-              <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>
-                {location.name}
-              </div>
-              <div style={{ fontSize: '14px', color: '#666' }}>
-                {location.formatted_address}
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-      {loadingSuggestions && value.length >= 3 && (
-        <div
-          style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            backgroundColor: 'white',
-            border: '1px solid #ddd',
-            borderRadius: '4px',
-            marginTop: '4px',
-            padding: '12px',
-            zIndex: 1000,
-          }}
-        >
-          <div style={{ color: '#666' }}>Loading suggestions...</div>
-        </div>
-      )}
-    </div>
+      <Popper
+        open={showSuggestions && suggestions.length > 0 && !!inputRef.current}
+        anchorEl={inputRef.current}
+        placement="bottom-start"
+        style={{ zIndex: 1300, width: inputRef.current?.clientWidth }}
+      >
+        <ClickAwayListener onClickAway={() => setShowSuggestions(false)}>
+          <Paper
+            ref={suggestionsRef}
+            sx={{
+              maxHeight: 300,
+              overflow: 'auto',
+              width: '100%',
+              mt: 0.5,
+            }}
+          >
+            <List dense>
+              {suggestions.map((location, index) => (
+                <ListItem
+                  key={index}
+                  button
+                  selected={selectedIndex === index}
+                  onClick={() => handleLocationSelect(location)}
+                  onMouseEnter={() => setSelectedIndex(index)}
+                >
+                  <ListItemText
+                    primary={
+                      <Typography variant="subtitle2" fontWeight="bold">
+                        {location.name}
+                      </Typography>
+                    }
+                    secondary={
+                      <Typography variant="body2" color="text.secondary">
+                        {location.formatted_address}
+                      </Typography>
+                    }
+                  />
+                </ListItem>
+              ))}
+            </List>
+          </Paper>
+        </ClickAwayListener>
+      </Popper>
+    </Box>
   );
 }
