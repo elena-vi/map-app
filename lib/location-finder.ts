@@ -2,9 +2,9 @@ import { Locations, LocationResult } from './models';
 
 export class LocationFinder {
   private location: string;
-  private currentLocation: string;
+  private currentLocation?: string;
 
-  constructor(location: string, currentLocation: string) {
+  constructor(location: string, currentLocation?: string) {
     this.location = location;
     this.currentLocation = currentLocation;
   }
@@ -17,9 +17,13 @@ export class LocationFinder {
     const params = new URLSearchParams({
       query: this.location,
       fields: 'formatted_address,name,geometry',
-      location: this.currentLocation,
       key: process.env.GOOGLE_MAPS_KEY || '',
     });
+
+    // Only add location bias if currentLocation is provided
+    if (this.currentLocation) {
+      params.append('location', this.currentLocation);
+    }
 
     const url = `${placesApi}${params.toString()}`;
     const response = await fetch(url);
@@ -45,7 +49,7 @@ export class LocationFinder {
 
   static async call(
     location: string,
-    currentLocation: string
+    currentLocation?: string
   ): Promise<LocationResult[]> {
     const finder = new LocationFinder(location, currentLocation);
     return finder.call();

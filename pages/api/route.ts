@@ -11,8 +11,12 @@ export default async function handler(
 
   const { start_location, end_location } = req.query;
 
-  if (!start_location || !end_location) {
-    return res.status(400).json({ error: 'Missing required parameters: start_location and end_location' });
+  if (!end_location) {
+    return res.status(400).json({ error: 'Missing required parameter: end_location' });
+  }
+
+  if (!start_location) {
+    return res.status(400).json({ error: 'Start location is required. Please provide start_location or enable location services.' });
   }
 
   try {

@@ -9,11 +9,38 @@ export default function RoutePage() {
   const [route, setRoute] = useState<Route | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+  const [currentLocation, setCurrentLocation] = useState<string | null>(null);
 
+  // Get current location if start_location is not provided
   useEffect(() => {
-    if (start_location && end_location) {
+    if (!start_location && end_location && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const location = `${position.coords.latitude},${position.coords.longitude}`;
+          setCurrentLocation(location);
+        },
+        (err) => {
+          setError('Unable to get your current location. Please provide a start location.');
+          setLoading(false);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        }
+      );
+    } else if (!start_location && !end_location) {
+      setError('Missing required parameters');
+      setLoading(false);
+    }
+  }, [start_location, end_location]);
+
+  // Fetch route when we have both locations
+  useEffect(() => {
+    const startLoc = start_location as string || currentLocation;
+    if (startLoc && end_location) {
       fetch(
-        `/api/route?start_location=${encodeURIComponent(start_location as string)}&end_location=${encodeURIComponent(end_location as string)}`
+        `/api/route?start_location=${encodeURIComponent(startLoc)}&end_location=${encodeURIComponent(end_location as string)}`
       )
         .then((res) => res.json())
         .then((data) => {
@@ -29,7 +56,7 @@ export default function RoutePage() {
           setLoading(false);
         });
     }
-  }, [start_location, end_location]);
+  }, [start_location, end_location, currentLocation]);
 
   if (loading) {
     return (

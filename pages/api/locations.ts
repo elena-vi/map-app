@@ -11,14 +11,14 @@ export default async function handler(
 
   const { destination, currentLocation } = req.query;
 
-  if (!destination || !currentLocation) {
-    return res.status(400).json({ error: 'Missing required parameters: destination and currentLocation' });
+  if (!destination) {
+    return res.status(400).json({ error: 'Missing required parameter: destination' });
   }
 
   try {
     const locations = await LocationFinder.call(
       destination as string,
-      currentLocation as string
+      currentLocation as string | undefined
     );
     res.status(200).json(locations);
   } catch (error: any) {
