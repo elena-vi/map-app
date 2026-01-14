@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev apps/map-app",
-    "build": "next build apps/map-app",
-    "start": "next start apps/map-app",
-    "lint": "next lint apps/map-app"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "^14.2.0",
