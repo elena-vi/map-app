@@ -62,8 +62,8 @@ jobs:
           # Set them as empty or use GitHub secrets if needed
           GOOGLE_MAPS_KEY: ${{ secrets.GOOGLE_MAPS_KEY || '' }}
           PLACES_API: ${{ secrets.PLACES_API || 'https://maps.googleapis.com/maps/api/place/textsearch/json?' }}
-          CITY_MAPPER_KEY: ${{ secrets.CITY_MAPPER_KEY || '' }}
-          CITYMAPPER_API_URL: ${{ secrets.CITYMAPPER_API_URL || 'https://api.external.citymapper.com/api/1/directions/transit?' }}
+          GOOGLE_ROUTES_API_KEY: ${{ secrets.GOOGLE_ROUTES_API_KEY || secrets.GOOGLE_MAPS_KEY || '' }}
+          GOOGLE_ROUTES_API_URL: ${{ secrets.GOOGLE_ROUTES_API_URL || 'https://routes.googleapis.com/directions/v2:computeRoutes' }}
         # Nx will automatically build dependencies (models and services) first
 
   test:

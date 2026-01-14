@@ -6,7 +6,7 @@ A TypeScript/Next.js application for finding routes and destinations, migrated f
 
 - Get current location using browser geolocation
 - Search for destinations using Google Places API
-- Find routes using Citymapper API
+- Find routes using Google Routes API for transit
 - View route options with arrival time, duration, price, and travel legs
 
 ## Setup
@@ -22,9 +22,10 @@ npm install
 GOOGLE_MAPS_KEY=your_google_maps_api_key_here
 PLACES_API=https://maps.googleapis.com/maps/api/place/textsearch/json?
 
-# Citymapper API Configuration
-CITY_MAPPER_KEY=your_citymapper_api_key_here
-CITYMAPPER_API_URL=https://api.external.citymapper.com/api/1/directions/transit?
+# Google Routes API Configuration (for transit directions)
+# Note: GOOGLE_ROUTES_API_KEY is optional - if not set, GOOGLE_MAPS_KEY will be used
+GOOGLE_ROUTES_API_KEY=your_google_routes_api_key_here
+GOOGLE_ROUTES_API_URL=https://routes.googleapis.com/directions/v2:computeRoutes
 ```
 
 You can copy `.env.example` to `.env.local` and fill in your actual API keys.

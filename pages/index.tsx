@@ -19,13 +19,35 @@ export default function Home() {
           setLongitude(position.coords.longitude.toString());
           setSubmitDisabled(false);
           setButtonText('Find your way');
+          setError(''); // Clear any previous errors
         },
         (err) => {
-          setError(
-            'Geolocation permission was denied. Please enter your location manually.'
-          );
+          // Check the specific error code
+          let errorMessage = 'Unable to get your location. Please enter your location manually.';
+          
+          switch (err.code) {
+            case err.PERMISSION_DENIED:
+              errorMessage = 'Geolocation permission was denied. Please enter your location manually.';
+              break;
+            case err.POSITION_UNAVAILABLE:
+              errorMessage = 'Location information is unavailable. Please enter your location manually.';
+              break;
+            case err.TIMEOUT:
+              errorMessage = 'Location request timed out. Please enter your location manually.';
+              break;
+            default:
+              errorMessage = 'Unable to get your location. Please enter your location manually.';
+              break;
+          }
+          
+          setError(errorMessage);
           setSubmitDisabled(false);
           setButtonText('Find your way');
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
         }
       );
     } else {
