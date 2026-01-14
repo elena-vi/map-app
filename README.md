@@ -31,7 +31,7 @@ You can copy `.env.example` to `.env.local` and fill in your actual API keys.
 
 3. Run the development server:
 ```bash
-nx serve map-app
+npm run dev
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
@@ -41,12 +41,11 @@ nx serve map-app
 - `apps/map-app/` - Next.js application
   - `pages/` - Next.js pages (index, new, route)
   - `pages/api/` - API routes for location and route services
-- `libs/models/` - TypeScript models/interfaces
-- `libs/services/` - Service classes for API calls
-- `legacy/` - Original Rails application (preserved for reference)
+  - `lib/` - Local TypeScript models and service classes for API calls
 
 ## Development
 
-- Build: `nx build map-app`
-- Serve: `nx serve map-app`
-- Lint: `nx lint map-app`
+- Dev server: `npm run dev`
+- Build: `npm run build`
+- Start (production): `npm run start`
+- Lint: `npm run lint`

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { Route, RouteOption } from '@map-app/models';
+import { Route, RouteOption } from '../lib/models';
 
 export default function RoutePage() {
   const router = useRouter();

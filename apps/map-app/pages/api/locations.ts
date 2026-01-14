@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { LocationFinder } from '@map-app/services';
+import { LocationFinder } from '../../lib/location-finder';
 
 export default async function handler(
   req: NextApiRequest,

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { LocationResult } from '@map-app/models';
+import { LocationResult } from '../lib/models';
 
 export default function New() {
   const router = useRouter();

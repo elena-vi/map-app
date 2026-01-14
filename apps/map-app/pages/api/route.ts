@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { RouteFinder } from '@map-app/services';
+import { RouteFinder } from '../../lib/route-finder';
 
 export default async function handler(
   req: NextApiRequest,
